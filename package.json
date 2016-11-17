@@ -1,0 +1,32 @@
+{
+  "name": "lineage-shopify",
+  "description": "",
+  "version": "2.0.0",
+  "main": "src/application.js",
+  "author": "drew@pow.rs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangodev/lineage-shopify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangodev/lineage-shopify.git"
+  },
+  "homepage": "https://github.com/dangodev/lineage-shopify#readme",
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-loader": "^1.1.1",
+    "vue-loader": "^9.9.5",
+    "webpack": "2.1.0-beta.27"
+  }
+}
