@@ -1,0 +1,10 @@
+/**
+ * Well
+ *
+ * Vertical spacing container
+ */
+
+.well {
+  margin-bottom: var(--base-space);
+  margin-top: var(--base-space);
+}

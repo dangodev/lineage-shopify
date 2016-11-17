@@ -40,3 +40,9 @@ theme ID in `dist/config.yml`.
 Alternatively, you can also run `theme upload` to upload everything.
 
 See the [themekit docs](https://github.com/shopify/themekit) for more commands.
+
+### Linting
+
+This repo comes with [ESLint](http://eslint.org/) and [stylelint](https://github.com/stylelint/stylelint) configured. Using a
+compatible plugin with your preferred text editor (preferring local
+config over global config) will give inline linting.

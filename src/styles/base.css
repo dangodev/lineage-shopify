@@ -1,0 +1,19 @@
+/**
+ * Base
+ *
+ * Low-level styles
+ */
+
+html {
+  background-color: var(--c-text);
+  color: var(--c-text);
+  font-family: var(--t-text-fontFamily);
+  font-weight: var(--t-text-fontWeight);
+}
+
+* {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
