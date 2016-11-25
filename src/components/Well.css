@@ -5,6 +5,6 @@
  */
 
 .well {
-  margin-bottom: var(--base-space);
-  margin-top: var(--base-space);
+  margin-bottom: var(--space);
+  margin-top: var(--space);
 }

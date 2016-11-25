@@ -9,7 +9,7 @@
  */
 
 :root {
-  --black: black;
+  --black: rgb(0,0,0);
   --white: white;
 }
 
@@ -33,11 +33,27 @@
  */
 
 :root {
-  --base-space: 32px;
-  --base-space-025: calc(var(--base-space) * 025);
-  --base-space-05: calc(var(--base-space) * 05);
-  --base-space-2: calc(var(--base-space) * 2);
-  --base-space-3: calc(var(--base-space) * 3);
-  --base-space-4: calc(var(--base-space) * 4);
-  --base-space-5: calc(var(--base-space) * 5);
+  --space: 32px;
+  --space-025: calc(var(--space) * 025);
+  --space-05: calc(var(--space) * 05);
+  --space-2: calc(var(--space) * 2);
+  --space-3: calc(var(--space) * 3);
+  --space-4: calc(var(--space) * 4);
+  --space-5: calc(var(--space) * 5);
 }
+
+/**
+ * @section Media Queries
+ */
+
+:root {
+  --viewport-s: 600px;
+  --viewport-m: 900px;
+  --viewport-l: 1200px;
+  --viewport-xl: 1800px;
+}
+
+@custom-media --query-s (width >= 600px);
+@custom-media --query-m (width >= 900px);
+@custom-media --query-l (width >= 1200px);
+@custom-media --query-xl (width >= 1800px);

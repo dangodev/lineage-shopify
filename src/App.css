@@ -17,6 +17,7 @@
  * @section Modules
  */
 
+@import "components/Cell.css";
 @import "components/Header.css";
 @import "components/Nav.css";
 @import "components/Well.css";

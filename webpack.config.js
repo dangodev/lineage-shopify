@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: './App.js',
-    //fonts: './Font.css',
+    fonts: './Font.css',
   },
   module: {
     rules: [
