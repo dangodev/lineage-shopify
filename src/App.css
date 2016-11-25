@@ -17,6 +17,10 @@
  * @section Modules
  */
 
+@import "styles/Header.css";
+@import "styles/Nav.css";
+@import "styles/Well.css";
+
 /**
  * @section Tools
  */

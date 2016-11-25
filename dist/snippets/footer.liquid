@@ -1,0 +1,9 @@
+<footer class="footer">
+  <nav role="navigation">
+    <ul>
+      {% for link in linklists.footer.links %}
+        <li><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</footer>

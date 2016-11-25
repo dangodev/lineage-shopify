@@ -4,4 +4,4 @@
  * Primary entry point
  */
 
-import styles from './application.css';
+import styles from './App.css';

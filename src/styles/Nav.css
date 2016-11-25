@@ -1,0 +1,17 @@
+/**
+ * Nav
+ *
+ * Main nav styles
+ */
+
+/**
+ * @section Base
+ */
+
+.nav {
+  display: flex;
+}
+
+/**
+ * @section Submodules
+ */

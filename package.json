@@ -24,9 +24,11 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "*",
+    "postcss": "^5.2.6",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^1.1.1",
-    "stylelint-config-standard": "^14.0.0",
+    "url-loader": "^0.5.7",
     "vue-loader": "^9.9.5",
     "webpack": "2.1.0-beta.27"
   },

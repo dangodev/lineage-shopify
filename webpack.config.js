@@ -5,14 +5,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    app: './application.js',
+    app: './App.js',
+    fonts: './Font.css',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: [
-          { loader: 'babel-loader', options: { presets: ['es2015'] } },
+          {
+            loader: 'babel-loader',
+            options: { presets: ['es2015'] },
+          },
         ],
       },
       {
@@ -24,10 +28,12 @@ module.exports = {
         ],
       },
       {
+        test: /\.(woff|woff2)$/,
+        use: ['url-loader'],
+      },
+      {
         test: /\.vue$/,
-        use: [
-          'vue-loader',
-        ],
+        use: ['vue-loader'],
       },
     ],
   },
@@ -35,17 +41,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/assets'),
     filename: '[name].bundle.js',
   },
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css.liquid',
-      allChunks: true,
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [
-          require('postcss-cssnext'),
-        ],
-      },
-    }),
+    new ExtractTextPlugin('[name].css.liquid'),
   ],
 };

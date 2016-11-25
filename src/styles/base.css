@@ -4,6 +4,8 @@
  * Low-level styles
  */
 
+@import './config.css';
+
 html {
   background-color: var(--c-text);
   color: var(--c-text);

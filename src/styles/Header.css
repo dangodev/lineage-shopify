@@ -1,0 +1,13 @@
+/**
+ * Header
+ *
+ * Styles for top header and wrapper around nav
+ */
+
+/**
+ * @section Base
+ */
+
+.header {
+  display: flex;
+}
