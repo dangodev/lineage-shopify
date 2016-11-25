@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: './App.js',
-    fonts: './Font.css',
+    //fonts: './Font.css',
   },
   module: {
     rules: [
@@ -20,11 +20,21 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
+        test: /App\.css/,
+        use: [
+          ExtractTextPlugin.extract('css'),
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /Font\.css/,
         use: [
           ExtractTextPlugin.extract('css'),
           'css-loader',
-          'postcss-loader',
         ],
       },
       {

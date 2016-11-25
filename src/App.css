@@ -8,21 +8,21 @@
  * @section Base
  */
 
-@import "~normalize.css";
-@import "styles/helpers.css";
-@import "styles/config.css";
-@import "styles/base.css";
+@import "normalize.css";
+@import "shared/helpers.css";
+@import "shared/config.css";
+@import "shared/base.css";
 
 /**
  * @section Modules
  */
 
-@import "styles/Header.css";
-@import "styles/Nav.css";
-@import "styles/Well.css";
+@import "components/Header.css";
+@import "components/Nav.css";
+@import "components/Well.css";
 
 /**
  * @section Tools
  */
 
-@import "styles/tools.css";
+@import "shared/tools.css";

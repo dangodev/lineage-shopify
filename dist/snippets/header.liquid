@@ -1,0 +1,17 @@
+<header class="header" itemscope itemtype="http://schema.org/LocalBusiness">
+  <h1>{{ store.title }}</h1>
+  <nav class="nav" role="navigation">
+    <a href="{{ store.url }}"><img class="header-logo" itemprop="logo" src="{{ 'lineage.svg' | asset_url }}" alt="{{ store.title }}"></a>
+    <ul>
+      {% comment %}
+      {% for link in linklists.main-menu.links %}
+        <li><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+      {% endcomment %}
+      <li><a class="nav-link" href="{{ collections.coffee.url }}">Coffee</a></li>
+      <li><a class="nav-link" href="{{ collections.gear.url }}">Gear</a></li>
+      <li><a class="nav-link" href="{{ pages.guides.url }}">Guides</a></li>
+      <li><a class="nav-link" href="{{ pages.about.url }}">About</a></li>
+    </ul>
+  </nav>
+</header>

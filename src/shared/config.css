@@ -1,0 +1,43 @@
+/**
+ * Config
+ *
+ * Variables and global settings
+ */
+
+/**
+ * @section Color
+ */
+
+:root {
+  --black: black;
+  --white: white;
+}
+
+/* Template Hooks */
+
+:root {
+  --c-text: var(--black);
+}
+
+/**
+ * @section Typography
+ */
+
+:root {
+  --t-text-fontFamily: "FF DIN", sans-serif;
+  --t-text-fontWeight: 400;
+}
+
+/**
+ * @section Grid
+ */
+
+:root {
+  --base-space: 32px;
+  --base-space-025: calc(var(--base-space) * 025);
+  --base-space-05: calc(var(--base-space) * 05);
+  --base-space-2: calc(var(--base-space) * 2);
+  --base-space-3: calc(var(--base-space) * 3);
+  --base-space-4: calc(var(--base-space) * 4);
+  --base-space-5: calc(var(--base-space) * 5);
+}
