@@ -31,11 +31,12 @@ to auto-compile assets. In another terminal window, run
 theme watch
 ```
 
-to upload files to the theme ID as you work.
+within `dist/` to upload files as you work.
 
-**Important:** this will overwrite any files in a theme. If you’re
-developing, be sure to use a non-published theme, and update the
-theme ID in `dist/config.yml`.
+**Important: this will overwrite any files in a theme.** If you’re
+developing major changes, either duplicate the current theme to a
+non-published copy, or develop a new theme entirely. Be sure to change
+the theme ID in `dist/config.yml`.
 
 Alternatively, you can also run `theme upload` to upload everything.
 
