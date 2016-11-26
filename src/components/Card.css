@@ -38,14 +38,14 @@
   font-weight: 700;
   height: 0;
   justify-content: flex-end;
-  padding-bottom: var(--space-05);
-  padding-left: var(--space-05);
-  padding-right: var(--space-05);
+  padding-bottom: var(--space-025);
+  padding-left: var(--space-025);
+  padding-right: var(--space-025);
   padding-top: 56.25%;
 }
 
 .card-title {
-  margin-top: var(--space-05);
+  margin-top: var(--space-025);
   margin-bottom: 0;
 }
 
