@@ -65,3 +65,20 @@
 @custom-media --query-m (width >= 900px);
 @custom-media --query-l (width >= 1200px);
 @custom-media --query-xl (width >= 1800px);
+
+/**
+ * @section Animations
+ */
+
+:root {
+  --transition-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+  --transition-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-default: var(--transition-fast-out-slow-in);
+  --transition-sharp: var(--transition-fast-out-linear-in);
+
+  --transition-acceleration: var(--transition-fast-out-linear-in);
+  --transition-deceleration: var(--transition-linear-out-slow-in);
+  --transition-standard: var(--transition-default);
+}
+

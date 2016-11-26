@@ -1,0 +1,3 @@
+{% for tag in product.tags %}
+  <span class="note note--{{ tag | downcase }}">{{ tag }}</span>
+{% endfor %}

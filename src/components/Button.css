@@ -10,15 +10,28 @@
 
 .button {
   -webkit-appearance: none;
-  box-shadow: 0 0 0 3px currentColor;
+  background-color: transparent;
+  box-shadow: 0 0 0 2px currentColor;
   border-radius: 0;
   border: none;
   color: var(--c-text);
+  cursor: pointer;
   display: inline-block;
-  font-weight: 700;
+  font-family: var(--t-text-fontFamily);
+  font-size: 1.125em;
+  font-weight: 500;
+  letter-spacing: 0.0625em;
   line-height: 1;
-  padding: 0.75em 1.5em;
+  padding: 0.75em 1.5em 0.875em;
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
+}
+
+/**
+ * @section Modifiers
+ */
+
+.button--l {
+  padding: 0.75em 2em 0.875em;
 }

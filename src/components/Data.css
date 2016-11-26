@@ -1,0 +1,29 @@
+/**
+ * Data
+ *
+ * Coffee attributes and other tabular things
+ */
+
+/**
+ * @section Base
+ */
+
+.data {
+  font-size: 13px;
+  width: 100%;
+}
+
+/**
+ * @section Submodules
+ */
+
+.data-term {
+  padding-bottom: var(--space-025);
+  text-align: left;
+}
+
+.data-value {
+  font-weight: 500;
+  padding-bottom: var(--space-025);
+  text-align: right;
+}

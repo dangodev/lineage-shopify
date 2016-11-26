@@ -1,7 +1,11 @@
 <footer class="footer" itemscope itemtype="http://schema.org/LocalBusiness">
   <div class="footer-info">
     <h1 itemprop="name">{{ shop.name }}</h1>
-    <a href="https://maps.apple.com/?q={{ shop.address.summary | url_encode }}" target="_blank" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">{{ shop.address.street }}</span><span itemprop="addressLocality">{{ shop.address.city }}</span><span itemprop="addressRegion">{{ shop.address.state }}</span></a>
+    <a href="https://maps.apple.com/?q={{ shop.address.summary | url_encode }}" target="_blank" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="streetAddress">{{ shop.address.street }}</span>
+      <span itemprop="addressLocality">{{ shop.address.city }}</span>
+      <span itemprop="addressRegion">{{ shop.address.state }}</span>
+    </a>
     <a href="mailto:{{ shop.email }}" itemprop="email">{{ shop.email }}</a>
   </div>
 

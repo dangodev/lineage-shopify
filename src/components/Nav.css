@@ -9,6 +9,7 @@
  */
 
 .nav {
+  user-select: none;
 
   & ul {
     align-items: center;

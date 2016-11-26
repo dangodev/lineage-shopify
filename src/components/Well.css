@@ -4,7 +4,20 @@
  * Vertical spacing container
  */
 
+/**
+ * @section Base
+ */
+
 .well {
   margin-bottom: var(--space);
   margin-top: var(--space);
+}
+
+/**
+ * @section Modifiers
+ */
+
+.well--l {
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-2);
 }

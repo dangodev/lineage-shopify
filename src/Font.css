@@ -1,17 +1,5 @@
 @font-face {
   font-family: "FF DIN";
-  font-weight: 300;
-  font-style: normal;
-  src: url('./assets/ffdin-light.woff');
-}
-@font-face {
-  font-family: "FF DIN";
-  font-weight: 300;
-  font-style: italic;
-  src: url('./assets/ffdin-lightitalic.woff');
-}
-@font-face {
-  font-family: "FF DIN";
   font-weight: 400;
   font-style: normal;
   src: url('./assets/ffdin-regular.woff');
@@ -27,12 +15,6 @@
   font-weight: 500;
   font-style: normal;
   src: url('./assets/ffdin-medium.woff');
-}
-@font-face {
-  font-family: "FF DIN";
-  font-weight: 500;
-  font-style: italic;
-  src: url('./assets/ffdin-mediumitalic.woff');
 }
 @font-face {
   font-family: "FF DIN";

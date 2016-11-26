@@ -1,0 +1,41 @@
+/**
+ * Score
+ *
+ * Coffee points
+ */
+
+/**
+ * @section Base
+ */
+
+.score {
+  text-align: center;
+}
+
+/**
+ * @section Submodules
+ */
+
+.score-label {
+  margin-top: 0;
+  margin-bottom: var(--space-05);
+  text-align: center;
+}
+
+.score-max {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  vertical-align: baseline;
+
+  &::before {
+    content: "/";
+  }
+}
+
+.score-value {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  vertical-align: baseline;
+}

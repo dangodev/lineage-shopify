@@ -1,0 +1,80 @@
+/**
+ * Switchboard
+ *
+ * Turning [type=radio] into buttons since 2016
+ */
+
+/**
+ * @section Base
+ */
+
+.switchboard {
+  box-shadow: 0 0 0 1px var(--black);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+/**
+ * @section Submodules
+ */
+
+.switchboard-switch {
+  position: absolute;
+  right: 200%;
+}
+
+.switchboard-label {
+  box-shadow: 0 0 0 1px var(--black), inset 0 0 0 1px var(--black);
+  cursor: pointer;
+  display: block;
+  flex: 1;
+  font-size: 20px;
+  font-weight: 700;
+  padding: var(--space-05);
+  text-align: center;
+  transition: background-color 200ms, color 200ms;
+
+  &:hover {
+    background-color: var(--gray);
+  }
+
+  & small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+  }
+}
+
+/**
+ * @section Modifiers
+ */
+
+.switchboard--light {
+  box-shadow: none;
+
+  & .switchboard-label {
+    box-shadow: none;
+  }
+
+  & .switchboard-switch:checked {
+    & + .switchboard-label {
+      box-shadow: inset 0 0 0 2px var(--black);
+      color: var(--c-text);
+    }
+  }
+}
+
+/**
+ * @section State
+ */
+
+.switchboard-switch:checked {
+  & + .switchboard-label {
+    background-color: var(--black);
+    color: var(--white);
+  }
+}

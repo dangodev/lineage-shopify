@@ -20,12 +20,16 @@
 @import "components/Button.css";
 @import "components/Card.css";
 @import "components/Cell.css";
+@import "components/Data.css";
 @import "components/Footer.css";
 @import "components/Header.css";
 @import "components/Hero.css";
 @import "components/Icon.css";
+@import "components/Layout.css";
 @import "components/Nav.css";
 @import "components/Note.css";
+@import "components/Score.css";
+@import "components/Switchboard.css";
 @import "components/Well.css";
 
 /**
