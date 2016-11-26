@@ -9,7 +9,14 @@
  */
 
 :root {
-  --black: rgb(0,0,0);
+  --almond: #d7ad4b;
+  --berry: #3f3b71;
+  --caramel: #d7ad4b;
+  --black: #222426;
+  --chocolate: #675344;
+  --gray: #dae7ec;
+  --cherry: #c00601;
+  --lemon: #ffe62a;
   --white: white;
 }
 
@@ -34,8 +41,9 @@
 
 :root {
   --space: 32px;
-  --space-025: calc(var(--space) * 025);
-  --space-05: calc(var(--space) * 05);
+  --space-025: calc(var(--space) * 0.25);
+  --space-05: calc(var(--space) * 0.5);
+  --space-075: calc(var(--space) * 0.75);
   --space-2: calc(var(--space) * 2);
   --space-3: calc(var(--space) * 3);
   --space-4: calc(var(--space) * 4);

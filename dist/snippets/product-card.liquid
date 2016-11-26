@@ -1,0 +1,14 @@
+<a class="card" href="{{ product.url }}">
+  <div class="card-img" style="background-image:url({{ product.featured_image | img_url 'medium' }})">
+    <div>
+      {% for tag in product.tags %}<span class="note note--{{ tag | downcase }}">{{ tag }}</span>{% endfor %}
+    </div>
+  </div>
+  <h2 class="card-title">{{ product.title }}</h2>
+  {% if product.metafields.c_f.region %}
+  <h4 class="card-subtitle">{{ product.metafields.c_f.region }}, {{ product.metafields.c_f.country }}</h4>
+  {% endif %}
+  {% if product.metafields.c_f.altitude %}
+  <h5 class="card-label">{{ product.metafields.c_f.altitude }}m</h5>
+  {% endif %}
+</a>

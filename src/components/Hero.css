@@ -1,0 +1,36 @@
+/**
+ * Hero
+ *
+ * Full-width banner
+ */
+
+/**
+ * @section Base
+ */
+
+.hero {
+  align-items: center;
+  background-color: var(--gray);
+  color: var(--c-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 25vh;
+  text-decoration: none;
+  width: 100%;
+
+  @media (height >= 600px) {
+    min-height: 37.5vh;
+  }
+}
+
+/**
+ * @section Submodules
+ */
+
+.hero-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}

@@ -10,15 +10,8 @@
 
 .nav {
 
-  & a {
-    color: var(--c-text);
-    display: block;
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
   & ul {
+    align-items: center;
     display: flex;
     list-style-type: none;
     margin: 0;
@@ -35,6 +28,29 @@
  * @section Submodules
  */
 
+.nav-cart {
+  position: relative;
+
+  &[data-cart]::after {
+    background-color: var(--c-text);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    content: "";
+    height: var(--space-05);
+    position: absolute;
+    right: calc(var(--space-05) * -0.75);
+    top: var(--space-05);
+    transform: translate(-50%, -50%);
+    width: var(--space-05);
+  }
+}
+
 .nav-link {
-  padding: 1.5em 1em;
+  color: var(--c-text);
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.0625em;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
 }

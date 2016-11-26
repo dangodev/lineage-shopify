@@ -18,3 +18,26 @@ html {
   background-size: cover;
   box-sizing: border-box;
 }
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+h4 {
+  font-weight: 400;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}

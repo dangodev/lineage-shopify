@@ -1,8 +1,22 @@
 <footer class="footer">
-  <nav role="navigation">
+  <div class="footer-info">
+    <h1>{{ shop.name }}</h1>
+    <a href="https://maps.apple.com/?q={{ shop.address.summary | url_encode }}" target="_blank" itemsprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">{{ shop.address.street }}</span><span itemprop="addressLocality">{{ shop.address.city }}</span><span itemprop="addressRegion">{{ shop.address.state }}</span></a>
+    <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+  </div>
+
+  <nav role="navigation" class="footer-nav">
     <ul>
       {% for link in linklists.footer.links %}
-        <li><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a></li>
+        <li><a class="footer-nav-link" href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <nav class="footer-social">
+    <ul>
+      {% for link in linklists.social.links %}
+        <li><a class="footer-social-link" href="{{ link.url }}"><svg aria-label="Cart" class="icon icon--{{ link.title | downcase }}" role="img"><use xlink:href="#icon_{{ link.title | downcase }}"></use></svg></a></li>
       {% endfor %}
     </ul>
   </nav>

@@ -1,0 +1,71 @@
+/**
+ * Card
+ *
+ * Product tile
+ */
+
+/**
+ * @section Base
+ */
+
+.card {
+  color: var(--c-text);
+  padding: var(--space-05);
+  position: relative;
+  text-decoration: none;
+  width: 50%;
+}
+
+/**
+ * @section Submodules
+ */
+
+.card-hover {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity;
+}
+
+.card-img {
+  align-items: flex-start;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  height: 0;
+  justify-content: flex-end;
+  padding-bottom: var(--space-05);
+  padding-left: var(--space-05);
+  padding-right: var(--space-05);
+  padding-top: 56.25%;
+}
+
+.card-title {
+  margin-top: var(--space-05);
+  margin-bottom: 0;
+}
+
+.card-subtitle {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.card-label {
+  font-size: 12px;
+  margin-bottom: 0;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+/**
+ * @section Context
+ */
+
+.has-card {
+  display: flex;
+  flex-wrap: wrap;
+}

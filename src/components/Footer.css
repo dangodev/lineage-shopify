@@ -1,0 +1,96 @@
+/**
+ * Footer
+ *
+ * Yeah you know what it is
+ */
+
+/**
+ * @section Base
+ */
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space);
+  max-width: calc(100% - var(--space-2));
+
+  @media (--query-m) {
+    max-width: var(--viewport-m);
+  }
+}
+
+/**
+ * @section Submodules
+ */
+
+.footer-info {
+  font-size: 11px;
+
+  & a {
+    color: var(--c-text);
+    display: block;
+  }
+
+  & h1 {
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-align: left;
+    text-transform: none;
+  }
+}
+
+.footer-nav {
+  & ul {
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.footer-nav-link {
+  display: block;
+  color: currentColor;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  padding: 0.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer-social {
+
+  & ul {
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.footer-social-link {
+  color: var(--c-text);
+  display: block;
+  text-decoration: none;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}

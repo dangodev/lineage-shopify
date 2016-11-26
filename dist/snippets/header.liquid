@@ -12,6 +12,7 @@
       <li><a class="nav-link" href="{{ collections.gear.url }}">Gear</a></li>
       <li><a class="nav-link" href="{{ pages.guides.url }}">Guides</a></li>
       <li><a class="nav-link" href="{{ pages.about.url }}">About</a></li>
+      <li><a class="nav-link nav-cart" {% if cart.item_count > 0 %}data-cart="{{ cart.item_count }}" {% endif %}href="/cart"><svg aria-label="Cart" class="icon icon--cart" role="img"><use xlink:href="#icon_cart"></use></svg></a></li>
     </ul>
   </nav>
 </header>

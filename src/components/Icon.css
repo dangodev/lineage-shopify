@@ -1,0 +1,51 @@
+/**
+ * Icon
+ *
+ * SVG icon sprites
+ */
+
+/**
+ * @section Base
+ */
+
+.icon {
+  display: inline-block;
+  fill: none;
+  height: 1em;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-width: 32;
+  vertical-align: middle;
+  width: 1em;
+}
+
+/**
+ * @section Modifiers
+ */
+
+.icon--cart {
+  height: 1.5em;
+  line-height: 1.5;
+  width: 1.5em;
+}
+
+.icon--facebook {
+  fill: currentColor;
+  height: var(--space-075);
+  stroke-width: 0;
+  width: var(--space-075);
+}
+
+.icon--instagram {
+  fill: currentColor;
+  height: var(--space-075);
+  stroke-width: 0;
+  width: var(--space-075);
+}
+
+.icon--twitter {
+  fill: currentColor;
+  height: var(--space-075);
+  stroke-width: 0;
+  width: var(--space-075);
+}

@@ -17,9 +17,15 @@
  * @section Modules
  */
 
+@import "components/Button.css";
+@import "components/Card.css";
 @import "components/Cell.css";
+@import "components/Footer.css";
 @import "components/Header.css";
+@import "components/Hero.css";
+@import "components/Icon.css";
 @import "components/Nav.css";
+@import "components/Note.css";
 @import "components/Well.css";
 
 /**
