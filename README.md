@@ -42,6 +42,16 @@ Alternatively, you can also run `theme upload` to upload everything.
 
 See the [themekit docs](https://github.com/shopify/themekit) for more commands.
 
+### Test/debug
+
+Need to try something that’s just not working / taking too long on
+Shopify? Install Webpack Dev Server if you haven’t already (`npm i -g webpack-dev-server@2.1.0-beta.10`),
+start the server (`webpack-dev-server`), and navigate to `localhost:8080/test.html`.
+
+Alternately, you can create additional HTML files within this
+directory to test/develop anything you need to locally. None of it will
+get pushed to the theme.
+
 ### Linting
 
 This repo comes with [ESLint](http://eslint.org/) and [stylelint](https://github.com/stylelint/stylelint) configured. Using a

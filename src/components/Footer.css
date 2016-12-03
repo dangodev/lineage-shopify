@@ -29,10 +29,14 @@
 
 .footer-info {
   font-size: 11px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  width: 25%;
 
   & a {
-    color: var(--c-text);
+    color: var(--gray);
     display: block;
+    text-decoration: none;
   }
 
   & h1 {
@@ -72,10 +76,12 @@
 }
 
 .footer-social {
+  width: 25%;
 
   & ul {
     align-items: center;
     display: flex;
+    justify-content: flex-end;
     list-style-type: none;
     margin: 0;
     padding: 0;

@@ -25,3 +25,14 @@
 .layout-aside {
   width: calc(25% - var(--space-05));
 }
+
+/**
+ * @section Modifiers
+ */
+
+.layout--single {
+  & .layout-body,
+    .layout-aside {
+    width: 100%;
+  }
+}

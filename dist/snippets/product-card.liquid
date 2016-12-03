@@ -11,6 +11,6 @@
   <h4 class="card-subtitle">{{ product.metafields.c_f.region }}, {{ product.metafields.c_f.country }}</h4>
   {% endif %}
   {% if product.metafields.c_f.altitude %}
-  <h5 class="card-label">{{ product.metafields.c_f.altitude }}m</h5>
+  <h5 class="card-label">{{ product.metafields.c_f.altitude | round }}m</h5>
   {% endif %}
 </a>

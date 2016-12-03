@@ -6,12 +6,13 @@
   <div class="well cell">
     <div class="layout">
       <article class="layout-body">
-        <h1 itemprop="name">{{ product.title }}</h1>
+        <div class="well--l"><h1 itemprop="name">{{ product.title }}</h1></div>
         <div itemprop="description">
           {{ product.description }}
         </div>
         <div class="well">
           <form action="/cart/add" method="post" enctype="multipart/form-data">
+            {% if product.type == "Coffee Beans" %}
             <fieldset class="well">
               <legend>Size</legend>
               <div class="switchboard switchboard--light">
@@ -50,6 +51,7 @@
                 {% endfor %}
               </div>
             </fieldset>
+            {% endif %}
 
             <select name="id" id="product_variants">
               {% for variant in product.variants %}
@@ -71,60 +73,64 @@
         </div>
       </article>
       <aside class="layout-aside">
+        {% if product.type == "Coffee Beans" %}
         {% assign score = product.metafields.c_f.score %}
         {% include 'score' %}
-        <h4 class="tac mb0">Roast Info</h4>
+        <h4 class="tac mb0 mt1">Roast Info</h4>
         <table class="data mt05">
           <tbody>
             {% if product.metafields.c_f.country %}
             <tr class="data-row">
               <td class="data-term">Country</td>
-              <td class="data-value">{{ product.metafields.c_f.country}}</td>
+              <td class="data-value">{{ product.metafields.c_f.country }}</td>
             </tr>
           {% endif %}
           {% if product.metafields.c_f.region %}
             <tr class="data-row">
               <td class="data-term">Region</td>
-              <td class="data-value">{{ product.metafields.c_f.region}}</td>
+              <td class="data-value">{{ product.metafields.c_f.region }}</td>
             </tr>
             {% endif %}
             {% if product.metafields.c_f.grower %}
             <tr class="data-row">
               <td class="data-term">Grower</td>
-              <td class="data-value">{{ product.metafields.c_f.grower}}</td>
+              <td class="data-value">{{ product.metafields.c_f.grower }}</td>
             </tr>
             {% endif %}
             {% if product.metafields.c_f.altitude %}
             <tr class="data-row">
               <td class="data-term">Altitude</td>
-              <td class="data-value">{{ product.metafields.c_f.altitude}}m</td>
+              <td class="data-value">{{ product.metafields.c_f.altitude | round }}m</td>
             </tr>
             {% endif %}
             {% if product.metafields.c_f.variety %}
             <tr class="data-row">
               <td class="data-term">Variety</td>
-              <td class="data-value">{{ product.metafields.c_f.variety}}</td>
+              <td class="data-value">{{ product.metafields.c_f.variety }}</td>
             </tr>
             {% endif %}
             {% if product.metafields.c_f.processing_method %}
             <tr class="data-row">
               <td class="data-term">Processing Method</td>
-              <td class="data-value">{{ product.metafields.c_f.processing_method}}</td>
+              <td class="data-value">{{ product.metafields.c_f.processing_method }}</td>
             </tr>
             {% endif %}
           </tbody>
         </table>
-        <h4 class="tac mt05">Flavor Profile</h4>
-        {% include 'notes' %} 
+        <h4 class="tac mt1">Flavor Profile</h4>
+        <div class="tac">{% include 'notes' %}</div>
+        {% endif %}
       </aside>
     </div>
   </div>
 
   <div class="cell well">
     <div class="has-card">
+      {% assign this_product = product %}
       {% assign related_1 = product.metafields.c_f.related_product_1 %}
       {% assign related_2 = product.metafields.c_f.related_product_2 %}
       {% assign opposite = product.metafields.c_f.opposite %}
+
       {% if related_1  %}
       {% capture label %}Similar to {{ product.title }}{% endcapture %}
       {% assign product = all_products[related_1] %}
@@ -148,6 +154,6 @@
     </div>
   </div>
   <div class="cell well tac">
-    <a href="{{ collections.coffee.url }}" class="button">See All Coffee</a>
+    <a href="{{ this_product.collections[0].url }}" class="button">See All {{ this_product.collections[0].title }}</a>
   </div>
 </div>

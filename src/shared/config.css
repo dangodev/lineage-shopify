@@ -14,10 +14,18 @@
   --caramel: #d7ad4b;
   --black: #222426;
   --chocolate: #675344;
-  --gray: #dae7ec;
+  --gray: #c7d4d8;
   --cherry: #c00601;
   --lemon: #ffe62a;
   --white: white;
+
+  /* Tints */
+  --gray-t: #dae7ec;
+  --gray-tt: #edf7f9;
+
+  /* Shades */
+  --gray-s: #7d8e91;
+  --gray-ss: #4d5a5b;
 }
 
 /* Template Hooks */

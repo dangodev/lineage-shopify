@@ -17,6 +17,7 @@
  * @section Modules
  */
 
+@import "components/Accordion.css";
 @import "components/Button.css";
 @import "components/Card.css";
 @import "components/Cell.css";

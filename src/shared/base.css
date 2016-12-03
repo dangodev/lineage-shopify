@@ -56,4 +56,16 @@ p {
   line-height: 1.5;
   max-width: 39.125em;
   max-width: 75ch;
+
+  & a {
+    border-bottom: 1px solid currentColor;
+    display: inline-block;
+    font-size: 0.75em;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.0625em;
+    padding: 0.125em 0;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 }
