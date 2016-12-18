@@ -1,0 +1,29 @@
+/**
+ * Block
+ *
+ * Big clicky banners Drew can’t think of a good name for
+ */
+
+/**
+ * @section Base
+ */
+
+.block {
+  align-items: center;
+  background-color: var(--gray);
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-left: var(--space-05);
+  min-height: 50vh;
+  text-decoration: none;
+}
+
+/**
+ * @section Containers
+ */
+
+.has-block {
+  display: flex;
+  margin-left: -var(--space-05);
+}

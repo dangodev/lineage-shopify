@@ -1,0 +1,97 @@
+/**
+ * Swipe
+ *
+ * Touch slider styles
+ */
+
+/**
+ * @section Base
+ */
+
+.swipe {
+  height: 50vh;
+  overflow: hidden;
+  user-select: none;
+  & img {
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  @media (height >= 700px) {
+    height: 42vh;
+  }
+}
+
+/**
+ * @section Submodules
+ */
+
+.swipe-button {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.swipe-slide {
+  background-color: var(--gray);
+  position: relative;
+}
+
+.swipe-preload {
+  background-color: var(--gray);
+  height: 50vh;
+}
+
+/**
+ * @section Overrides
+ */
+
+.mint-swipe-indicators {
+  bottom: var(--space);
+}
+
+.mint-swipe-indicator {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px white;
+  opacity: 1;
+  & .is-active {
+    background-color: white;
+  }
+}
+
+/**
+ * @section State
+ */
+
+.swipe.is-initialized {
+  & .swipe-button {
+    visibility: visible;
+  }
+
+  & .swipe-preload {
+    display: none;
+  }
+
+  & img {
+    position: static;
+    visibility: visible;
+  }
+}
+
+.swipe
+  .is-light
+    .swipe-button {
+      color: white;
+
+      &:focus,
+      &:hover {
+        & .button-inner {
+          color: var(--black);
+        }
+      }
+}

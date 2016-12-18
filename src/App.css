@@ -14,10 +14,17 @@
 @import "shared/base.css";
 
 /**
+ * @section Vendor
+ */
+
+@import "vue-swipe/dist/vue-swipe.css";
+
+/**
  * @section Modules
  */
 
 @import "components/Accordion.css";
+@import "components/Block.css";
 @import "components/Button.css";
 @import "components/Card.css";
 @import "components/Cell.css";
@@ -25,11 +32,13 @@
 @import "components/Footer.css";
 @import "components/Header.css";
 @import "components/Hero.css";
+@import "components/Hours.css";
 @import "components/Icon.css";
 @import "components/Layout.css";
 @import "components/Nav.css";
 @import "components/Note.css";
 @import "components/Score.css";
+@import "components/Swipe.css";
 @import "components/Switchboard.css";
 @import "components/Well.css";
 

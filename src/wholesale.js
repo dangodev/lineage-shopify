@@ -37,6 +37,6 @@ const app = new Vue({
       },
     ],
   },
-  template: '<accordion :folds="folds">Works!</accordion>',
+  template: '<accordion :folds="folds" />',
   components: { Accordion },
 });

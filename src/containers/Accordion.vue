@@ -24,7 +24,7 @@ import AccordionFold from '../components/AccordionFold.vue';
 export default {
   props: {
     folds: Array,
-   },
+  },
   components: { AccordionFold },
 }
 </script>

@@ -53,6 +53,7 @@
   --space-025: calc(var(--space) * 0.25);
   --space-05: calc(var(--space) * 0.5);
   --space-075: calc(var(--space) * 0.75);
+  --space-15: calc(var(--space) * 1.5);
   --space-2: calc(var(--space) * 2);
   --space-3: calc(var(--space) * 3);
   --space-4: calc(var(--space) * 4);

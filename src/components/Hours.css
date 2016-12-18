@@ -1,0 +1,63 @@
+/**
+ * Hours
+ *
+ * Storefront hours card
+ */
+
+/**
+ * @section Base
+ */
+
+.hours {
+  background-color: white;
+  font-size: 14px;
+  margin-left: auto;
+  padding: 2em;
+  text-align: center;
+
+  & span {
+    font-weight: 700;
+  }
+
+  @media (--query-m) {
+    width: 20em;
+  }
+}
+
+/**
+ * @section Status
+ */
+
+.hours-intro {
+  font-weight: 500;
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+}
+
+.hours-status {
+  display: block;
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 0.75em;
+  &.is-closed {
+    color: var(--gray);
+  }
+  &.is-closing {
+    color: var(--lemon);
+  }
+  &.is-open {
+    color: var(--blue);
+  }
+}
+
+/**
+ * @section Containers
+ */
+
+.has-hours {
+  background-color: var(--gray);
+  margin-bottom: var(--space-05);
+  margin-top: var(--space-05);
+  padding-bottom: var(--space);
+  padding-top: var(--space);
+}
