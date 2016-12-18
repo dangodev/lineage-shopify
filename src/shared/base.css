@@ -19,6 +19,10 @@ html {
   box-sizing: border-box;
 }
 
+a {
+  color: var(--blue);
+}
+
 h1 {
   font-size: 32px;
   font-weight: 700;

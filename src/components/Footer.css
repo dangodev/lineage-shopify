@@ -11,6 +11,7 @@
 .footer {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: var(--space);
   margin-left: auto;
@@ -30,8 +31,17 @@
 .footer-info {
   font-size: 11px;
   line-height: 1.5;
+  margin-top: var(--space-05);
+  order: 10;
+  text-align: center;
   text-transform: uppercase;
-  width: 25%;
+  width: 100%;
+
+  @media (--query-s) {
+    order: 0;
+    text-align: left;
+    width: 25%;
+  }
 
   & a {
     color: var(--gray);
@@ -43,18 +53,37 @@
     font-size: 11px;
     font-weight: 400;
     margin-bottom: 0;
-    text-align: left;
+    text-align: center;
     text-transform: none;
+
+    @media (--query-s) {
+      text-align: left;
+    }
   }
 }
 
 .footer-nav {
+  width: 100%;
+
+  @media (--query-s) {
+    width: auto;
+  }
+
   & ul {
     align-items: center;
     display: flex;
+    justify-content: space-between;
     list-style-type: none;
-    margin: 0;
+    margin-bottom: var(--space-05);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: var(--space-05);
     padding: 0;
+    width: 100%;
+
+    @media (--query-s) {
+      width: auto;
+    }
   }
 
   & li {
@@ -71,6 +100,7 @@
   margin-left: 0.25em;
   margin-right: 0.25em;
   padding: 0.5em;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 200ms;
@@ -82,15 +112,23 @@
 }
 
 .footer-social {
-  width: 25%;
+  width: 100%;
+
+  @media (--query-m) {
+    width: 25%;
+  }
 
   & ul {
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+    @media (--query-m) {
+      justify-content: flex-end;
+    }
   }
 
   & li {
@@ -102,10 +140,15 @@
 .footer-social-link {
   color: var(--c-text);
   display: block;
-  margin-left: 0.25em;
-  margin-right: 0.25em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   text-decoration: none;
   transition: color 200ms;
+
+  @media (--query-s) {
+    margin-left: 0.375em;
+    margin-right: 0.375em;
+  }
 
   &:focus,
   &:hover {

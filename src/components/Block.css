@@ -12,11 +12,18 @@
   align-items: center;
   background-color: var(--gray);
   display: flex;
-  flex: 1;
   justify-content: center;
   margin-left: var(--space-05);
-  min-height: 50vh;
+  margin-bottom: var(--space-05);
+  min-height: 25vh;
   text-decoration: none;
+  width: 100%;
+
+  @media (--query-s) {
+    flex: 1;
+    min-height: 50vh;
+    width: auto;
+  }
 }
 
 /**
@@ -25,5 +32,6 @@
 
 .has-block {
   display: flex;
+  flex-wrap: wrap;
   margin-left: -var(--space-05);
 }

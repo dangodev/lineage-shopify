@@ -19,7 +19,7 @@
     font-weight: 700;
   }
 
-  @media (--query-m) {
+  @media (--query-s) {
     width: 20em;
   }
 }
