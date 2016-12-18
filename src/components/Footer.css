@@ -22,6 +22,9 @@
   @media (--query-m) {
     max-width: var(--viewport-m);
   }
+  @media (--query-l) {
+    max-width: var(--viewport-l);
+  }
 }
 
 /**

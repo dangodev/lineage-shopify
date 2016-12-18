@@ -13,7 +13,11 @@
   padding: var(--space-05);
   position: relative;
   text-decoration: none;
-  width: 50%;
+  width: 100%;
+
+  @media (--query-s) {
+    width: 50%;
+  }
 }
 
 /**
