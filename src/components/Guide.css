@@ -1,0 +1,23 @@
+/**
+ * Guide
+ * Brewing cards
+ */
+
+/**
+ * @section Base
+ */
+
+.guide {
+  display: block;
+  padding: var(--space);
+  width: 50%;
+}
+
+/**
+ * @section Container
+ */
+
+.has-guide {
+  display: flex;
+  flex-wrap: wrap;
+}

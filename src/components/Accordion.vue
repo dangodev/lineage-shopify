@@ -1,5 +1,6 @@
 /**
  * Accordion
+ *
  * Expandable content. Multi-select tabs.
  */
 
@@ -18,7 +19,7 @@
  */
 
 <script>
-import AccordionFold from './AccordionFold.vue';
+import AccordionFold from '../components/AccordionFold.vue';
 
 export default {
   props: {

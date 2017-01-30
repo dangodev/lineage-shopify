@@ -5,6 +5,14 @@
  */
 
 /**
+ * @section Color
+ */
+
+.tcb { color: var(--blue); }
+.tck { color: var(--black); }
+.tcgy { color: var(--gray); }
+
+/**
  * @section Spacing
  */
 

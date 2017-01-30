@@ -81,6 +81,7 @@
  */
 
 .button--directions {
+  box-shadow: 0 0 0 1px currentColor;
   display: block;
   font-size: 13px;
   font-weight: 500;
@@ -99,7 +100,9 @@
     content: "Get Directions";
     display: block;
     font-size: 0.875em;
+    font-weight: 400;
     letter-spacing: 0.125em;
+    margin-top: 0.25em;
   }
 
   &:focus,

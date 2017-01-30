@@ -12,31 +12,35 @@
     "type": "git",
     "url": "git+https://github.com/dangodev/lineage-shopify.git"
   },
+  "scripts": {
+    "build": "webpack -p",
+    "dev": "webpack -p --watch"
+  },
   "homepage": "https://github.com/dangodev/lineage-shopify#readme",
   "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-preset-latest": "^6.16.0",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-latest": "*",
     "css-loader": "*",
-    "eslint": "^3.10.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.6.0",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-react": "*",
     "extract-text-webpack-plugin": "beta",
     "file-loader": "*",
-    "postcss": "^5.2.6",
-    "postcss-cssnext": "^2.8.0",
-    "postcss-import": "^9.0.0",
-    "postcss-loader": "^1.1.1",
-    "url-loader": "^0.5.7",
-    "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.1.4",
-    "webpack": "beta"
+    "postcss": "*",
+    "postcss-cssnext": "*",
+    "postcss-import": "*",
+    "postcss-loader": "*",
+    "url-loader": "*",
+    "vue-loader": "*",
+    "vue-template-compiler": "*",
+    "webpack": "^2"
   },
   "dependencies": {
-    "normalize.css": "^5.0.0",
-    "vue": "^2.1.4",
-    "vue-swipe": "^2.0.0"
+    "normalize.css": "^5.0",
+    "siema": "^1.1",
+    "vue": "^2.1"
   }
 }

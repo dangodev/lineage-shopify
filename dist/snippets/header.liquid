@@ -3,11 +3,6 @@
   <a href="{{ shop.url }}"><img class="header-logo" itemprop="logo" src="{{ 'lineage.svg' | asset_url }}" alt="{{ shop.name }}"></a>
   <nav class="header-nav nav" role="navigation">
     <ul>
-      {% comment %}
-      {% for link in linklists.main-menu.links %}
-        <li><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-      {% endcomment %}
       {% capture product_type %}{{ product.collections | map: 'handle' }}{% endcapture %}
       <li><a class="nav-link{% if collection.handle == 'coffee' or product_type contains 'coffee' %} is-active{% endif %}" href="{{ collections.coffee.url }}">Coffee</a></li>
       <li><a class="nav-link{% if collection.handle == 'gear' or product_type contains 'gear' %} is-active{% endif %}" href="{{ collections.gear.url }}">Gear</a></li>

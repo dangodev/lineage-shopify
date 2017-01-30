@@ -1,0 +1,33 @@
+/**
+ * Stepper
+ *
+ * Up and down
+ */
+
+/**
+ * @section Base
+ */
+
+.stepper {
+  background-color: var(--gray-t);
+  border-radius: 2em;
+  border: none;
+  height: 1.5em;
+  line-height: 1.5;
+  text-align: center;
+  width: 2em;
+}
+
+/**
+ * @section Submodules
+ */
+
+.stepper-button {
+  appearance: none;
+  background-color: none;
+  border: none;
+  height: 1.5em;
+  line-height: 1.5;
+  text-align: center;
+  width: 1.5em;
+}

@@ -1,82 +1,42 @@
-<div id="vue-home">
-  <div class="row">
-    <div id="slider">
-      <swipe class="swipe" :class="{ 'is-initialized': true }" auto="{{ settings.home_hero_auto_speed }}">
-      {% for i in (1..3) %}
-        {% capture slide %}hero_slide_{{ i }}_enable{% endcapture %}
-        {% capture slide_img %}hero_slide_{{ i }}.jpg{% endcapture %}
-        {% capture slide_text_color %}hero_slide_{{ i }}_text_color{% endcapture %}
-        {% capture slide_cta %}hero_slide_{{ i }}_cta{% endcapture %}
-        {% capture slide_link %}hero_slide_{{ i }}_link{% endcapture %}
-        {% if settings[slide] %}
-          <swipe-item class="swipe-slide {{ settings[slide_text_color] }}">
-            <img src="{{ slide_img | asset_img_url: '2048x2048' }}">
-            <a href="{{ settings[slide_link] }}" class="button swipe-button">
-              <div class="button-inner">{{ settings[slide_cta] }}</div>
-            </a>
-          </swipe-item>
-        {% endif %}
-      {% endfor %}
-
-      {% capture slide %}hero_slide_1_enable{% endcapture %}
-      {% capture slide_img %}hero_slide_1.jpg{% endcapture %}
-      {% capture slide_text_color %}hero_slide_1_text_color{% endcapture %}
-      {% capture slide_cta %}hero_slide_1_cta{% endcapture %}
-      {% capture slide_link %}hero_slide_1_link{% endcapture %}
-      <div class="swipe-preload" style="background-image:url({{ slide_img | asset_img_url: '2048x2048' }})"></div>
-      </swipe>
-      <noscript>
-        <div class="swipe is-initialized">
-          <div class="swipe-slide">
-            <img src="{{ slide_img | asset_img_url: '2048x2048' }}">
-            <a href="{{ settings[slide_link] }}" class="button swipe-button">
-              <div class="button-inner">{{ settings[slide_cta] }}</div>
-            </a>
-          </div>
-        </div>
-      </noscript>
-    </div>
-  </div>
-  <div class="row">
-    <div class="has-hours" style="background-image: url({{ 'bg-store.jpg' | asset_url }})">
-      <div class="cell">
-        <div class="hours">
-          <table class="data">
-            <lineage-hours/>
-            <tbody class="data-body">
-              <tr class="data-row">
-                <td class="data-term">M–F</td>
-                <td class="data-value">8a – 7p</td>
-              </tr>
-              <tr class="data-row">
-                <td class="data-term">Sat</td>
-                <td class="data-value">8a – 7p</td>
-              </tr>
-              <tr class="data-row">
-                <td class="data-term">Sun</td>
-                <td class="data-value">10a – 6p</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="https://maps.apple.com/?q={{ shop.address.summary | escape }}" class="button button--icon button--directions mt05">
-            <div class="button-inner">
-              <svg aria-label="Pin" class="icon icon--marker button-icon" role="img"><use xlink:href="#icon_marker"></use></svg>
-              {{ shop.address.street }}<br>
-              {{ shop.address.city }}, {{ shop.address.state }} {{ shop.address.zip}}
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="has-block">
-      <a href="{{ collections.coffee.url }}" class="block" style="background-image:url({{ 'bg-coffee.jpg' | asset_img_url: '1024x1024' }})">
-        <span class="button button--white"><span class="button-inner">Shop Coffee</span></span>
-      </a>
-      <a href="{{ pages.wholesale.url }}" class="block" style="background-image:url({{ 'bg-wholesale.jpg' | asset_img_url: '1024x1024' }})">
-        <span class="button button--white"><span class="button-inner">Wholesale</span></span>
-      </a>
-    </div>
+<div class="row">
+  <v-carousel
+    :auto="{{ settings.home_hero_auto_speed }}"
+    :slides="[
+    {% if settings['hero_slide_1_enable'] %}
+      {
+      cta: '{{ settings['hero_slide_1_cta'] }}',
+      color: '{{ settings['hero_slide_1_text_color'] }}',
+      image: '{{ 'hero_slide_1.jpg' | asset_img_url: '2048x2048' }}',
+      link: '{{ settings['hero_slide_1_link'] }}',
+      },
+    {% endif %}
+    {% if settings['hero_slide_2_enable'] %}
+      {
+      cta: '{{ settings['hero_slide_2_cta'] }}',
+      color: '{{ settings['hero_slide_2_text_color'] }}',
+      image: '{{ 'hero_slide_2.jpg' | asset_img_url: '2048x2048' }}',
+      link: '{{ settings['hero_slide_2_link'] }}',
+      },
+    {% endif %}
+    {% if settings['hero_slide_3_enable'] %}
+      {
+      cta: '{{ settings['hero_slide_3_cta'] }}',
+      color: '{{ settings['hero_slide_3_text_color'] }}',
+      image: '{{ 'hero_slide_3.jpg' | asset_img_url: '2048x2048' }}',
+      link: '{{ settings['hero_slide_3_link'] }}',
+      },
+    {% endif %}
+    ]" />
+  <div class="siema-preload" style="background-image:url({{ 'hero_slide_1.jpg' | asset_img_url: '2048x2048' }})"></div>
+</div>
+{% include 'store-hours' %}
+<div class="row">
+  <div class="has-block">
+    <a href="{{ collections.coffee.url }}" class="block" style="background-image:url({{ 'bg-coffee.jpg' | asset_img_url: '1024x1024' }})">
+      <span class="button button--white"><span class="button-inner">Shop Coffee</span></span>
+    </a>
+    <a href="{{ pages.wholesale.url }}" class="block" style="background-image:url({{ 'bg-wholesale.jpg' | asset_img_url: '1024x1024' }})">
+      <span class="button button--white"><span class="button-inner">Wholesale</span></span>
+    </a>
   </div>
 </div>

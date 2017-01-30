@@ -48,11 +48,15 @@ module.exports = {
     alias: {
       vue: 'vue/dist/vue.js',
     },
+    extensions: ['.js', '.vue'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   plugins: [
     extractStyles,
     extractFonts,
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: '"production"' },
+    }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),

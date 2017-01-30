@@ -29,21 +29,13 @@
  * @section Modifiers
  */
 
-.note--almond {
-  background-color: var(--almond);
-}
-.note--berry {
-  background-color: var(--berry);
-}
-.note--caramel {
-  background-color: var(--caramel);
-}
-.note--cherry {
-  background-color: var(--cherry);
-}
-.note--chocolate {
-  background-color: var(--chocolate);
-}
-.note--lemon {
-  background-color: var(--lemon);
-}
+.note--almond { background-color: var(--almond); }
+.note--berry { background-color: var(--berry); }
+.note--caramel { background-color: var(--caramel); }
+.note--cherry { background-color: var(--cherry); }
+.note--chocolate { background-color: var(--chocolate); }
+.note--floral { background-color: var(--floral); }
+.note--lemon { background-color: var(--lemon); }
+.note--marshmallow { background-color: var(--marshmallow); color: var(--black); }
+.note--peach { background-color: var(--peach); }
+.note--plum { background-color: var(--plum); }

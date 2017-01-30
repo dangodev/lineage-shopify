@@ -20,7 +20,8 @@
   }
 
   @media (--query-s) {
-    width: 20em;
+    padding: 3em;
+    width: 23em;
   }
 }
 
@@ -58,6 +59,4 @@
   background-color: var(--gray);
   margin-bottom: var(--space-05);
   margin-top: var(--space-05);
-  padding-bottom: var(--space);
-  padding-top: var(--space);
 }

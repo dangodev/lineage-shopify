@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="has-hours" style="background-image: url({{ 'bg-store.jpg' | asset_url }})">
+    <div class="cell">
+      <div class="hours">
+        <table class="data">
+          <lineage-hours/>
+          <tbody class="data-body">
+            <tr class="data-row">
+              <td class="data-term">M–F</td>
+              <td class="data-value">8a – 7p</td>
+            </tr>
+            <tr class="data-row">
+              <td class="data-term">Sat</td>
+              <td class="data-value">8a – 7p</td>
+            </tr>
+            <tr class="data-row">
+              <td class="data-term">Sun</td>
+              <td class="data-value">10a – 6p</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="https://maps.apple.com/?q={{ shop.address.summary | escape }}" class="button button--icon button--directions mt05">
+          <div class="button-inner">
+            <svg aria-label="Pin" class="icon icon--marker button-icon" role="img"><use xlink:href="#icon_marker"></use></svg>
+            {{ shop.address.street }}<br>
+            {{ shop.address.city }}, {{ shop.address.state }} {{ shop.address.zip}}
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

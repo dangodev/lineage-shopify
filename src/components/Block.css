@@ -21,7 +21,8 @@
 
   @media (--query-s) {
     flex: 1;
-    min-height: 50vh;
+    max-height: 20em;
+    height: 50vh;
     width: auto;
   }
 }

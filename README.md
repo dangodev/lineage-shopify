@@ -10,9 +10,6 @@ Then run:
 npm i
 ```
 
-Also install Webpack (`npm i -g webpack@2.1.0-beta.27`) globally if you
-haven’t already.
-
 To hook this up to the store, fill in the information from `dist/config-sample.yml` and
 save it as `dist/config.yml`. Fill in the values from Shopify Dashboard > Apps > Private Apps > Drew’s Dev Pipeline.
 The creds aren’t stored in this repo for security.
@@ -22,7 +19,7 @@ The creds aren’t stored in this repo for security.
 In one terminal window, run
 
 ```
-webpack -p --watch
+npm run dev
 ```
 
 to auto-compile assets. In another terminal window, run

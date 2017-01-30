@@ -14,10 +14,14 @@
   --caramel: #d7ad4b;
   --black: #222426;
   --blue: #73e1e5;
-  --chocolate: #675344;
-  --gray: #c7d4d8;
   --cherry: #c00601;
+  --chocolate: #675344;
+  --floral: #f2bdff;
+  --gray: #c7d4d8;
   --lemon: #ffe62a;
+  --marshmallow: #fdf5ee;
+  --peach: #ffbeae;
+  --plum: #5e65bb;
   --white: white;
 
   /* Tints */
@@ -50,9 +54,13 @@
 
 :root {
   --space: 32px;
+  --space-0125: calc(var(--space) * 0.125);
   --space-025: calc(var(--space) * 0.25);
+  --space-0375: calc(var(--space) * 0.375);
   --space-05: calc(var(--space) * 0.5);
+  --space-0625: calc(var(--space) * 0.625);
   --space-075: calc(var(--space) * 0.75);
+  --space-0875: calc(var(--space) * 0.875);
   --space-15: calc(var(--space) * 1.5);
   --space-2: calc(var(--space) * 2);
   --space-3: calc(var(--space) * 3);

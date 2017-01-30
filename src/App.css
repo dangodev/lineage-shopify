@@ -14,12 +14,6 @@
 @import "shared/base.css";
 
 /**
- * @section Vendor
- */
-
-@import "vue-swipe/dist/vue-swipe.css";
-
-/**
  * @section Modules
  */
 
@@ -30,6 +24,7 @@
 @import "components/Cell.css";
 @import "components/Data.css";
 @import "components/Footer.css";
+@import "components/Guide.css";
 @import "components/Header.css";
 @import "components/Hero.css";
 @import "components/Hours.css";
@@ -38,7 +33,8 @@
 @import "components/Nav.css";
 @import "components/Note.css";
 @import "components/Score.css";
-@import "components/Swipe.css";
+@import "components/Siema.css";
+@import "components/Stepper.css";
 @import "components/Switchboard.css";
 @import "components/Well.css";
 

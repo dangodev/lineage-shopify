@@ -1,0 +1,96 @@
+/**
+ * Siema
+ * Touch slider styles
+ */
+
+/**
+ * @section Base
+ */
+
+.siema {
+  background-color: var(--gray);
+  height: 50vh;
+  overflow: hidden;
+  user-select: none;
+
+  & img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (height >= 700px) {
+    height: 42vh;
+  }
+}
+
+/**
+ * @section Submodules
+ */
+
+.siema-button {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.siema-marker {
+  align-items: center;
+  bottom: var(--space);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+
+  & > * {
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px white;
+    height: var(--space-025);
+    margin-left: var(--space-0125);
+    margin-right: var(--space-0125);
+    opacity: 1;
+    width: var(--space-025);
+    &.is-active {
+      background-color: white;
+    }
+  }
+}
+
+.siema-slide {
+  background-color: var(--gray);
+  height: 50vh;
+  position: relative;
+}
+
+.siema-preload {
+  background-color: var(--gray);
+  height: 50vh;
+}
+
+/**
+ * @section Container
+ */
+
+.has-siema {
+  position: relative;
+}
+
+/**
+ * @section State
+ */
+
+.siema-slide.is-light {
+  & .siema-button {
+    color: white;
+
+    &:focus,
+    &:hover {
+      & .button-inner {
+        color: var(--black);
+      }
+    }
+  }
+}

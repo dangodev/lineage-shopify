@@ -1,54 +1,43 @@
-<!-- /templates/cart.liquid -->
-{% comment %}
-
-  For info on test orders:
-    - General http://docs.shopify.com/manual/your-store/orders/test-orders
-    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
-
-{% endcomment %}
-
 {% if cart.item_count > 0 %}
-
-  <h1>{{ 'cart.general.title' | t }}</h1>
-  <form action="/cart" method="post" novalidate class="cart table-wrap">
-    <table class="cart-table full table--responsive">
-      <thead class="cart__row cart__header-labels">
-        <th colspan="2" class="text-center">{{ 'cart.label.product' | t }}</th>
-        <th class="text-center">{{ 'cart.label.price' | t }}</th>
-        <th class="text-center">{{ 'cart.label.quantity' | t }}</th>
-        <th class="text-right">{{ 'cart.label.total' | t }}</th>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr class="cart__row table__section">
-            <td data-label="{{ 'customer.order.product' | t }}">
-              <a href="{{ item.url | within: collections.all }}" class="cart__image">
-                {% comment %}
-                  More image size options at:
-                    - http://docs.shopify.com/themes/filters/product-img-url
-                {% endcomment %}
-                <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-              </a>
-            </td>
-            <td>
-              <a href="{{ item.url }}" class="h4">
-                {{ item.product.title }}
-              </a>
-              {% unless item.variant.title contains 'Default' %}
-                <br>
-                <small>{{ item.variant.title }}</small>
-              {% endunless %}
-
-              {% if settings.cart_vendor_enable %}
-                <p>{{ item.vendor }}</p>
-              {% endif %}
-
-              {% comment %}
-                Optional, loop through custom product line items if available
-
-                For more info on line item properties, visit:
-                  - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
-              {% endcomment %}
+  <div class="well">
+    <div class="cell">
+      <h1>{{ 'cart.general.title' | t }}</h1>
+      <form action="/cart" method="post" novalidate class="cart table-wrap">
+        <table class="cart">
+          <tbody>
+            {% for item in cart.items %}
+              {% assign product = item.product %}
+              <tr class="cart-item">
+                {% capture product_type %}{{ product.collections | map: 'handle' }}{% endcapture %}
+                <td class="cart-deets">
+                  {% if product_type contains 'coffee' %}
+                    <svg aria-label="Coffee" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg>
+                  {% elsif product_type contains 'gear' %}
+                    <svg aria-label="Coffee" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg>
+                  {% endif %}
+                </td>
+                <td>
+                  <strong class="cart-item-title">{{ item.title }}</strong>
+                  <div class="cart-item-region">{{ product.metafields.c_f.region }}</div>
+                  <div>{% include 'notes' %}</div>
+                </td>
+                <td class="cart-price">
+                  {{ item.price | money }}
+                </td>
+                <td class="cart-actions">
+                  <v-stepper>
+                    <button class="stepper-button" @click="decrement">−</button>
+                    <input type="number" class="stepper" v-model="quantity" value="{{ item.quantity }}">
+                    <button class="stepper-button" @click="increment">+</button>
+                  </v-stepper>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
               {% assign property_size = item.properties | size %}
               {% if property_size > 0 %}
                 {% for p in item.properties %}
@@ -93,9 +82,6 @@
               {% endfor %}
             </td>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
     <div class="grid cart__row">
       {% if settings.cart_notes_enable %}
         <div class="grid__item two-thirds small--one-whole">
@@ -128,3 +114,15 @@
   <p>{{ 'cart.general.empty' | t }}</p>
   <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
 {% endif %}
+</div>
+
+<div class="cell well">
+<h2 class="mb0">Also Check these out</h2>
+<h4 class="mt0 tcgy">(no pressure)</h4>
+<div class="has-card">
+  {% for i in (1..3) %}
+    {% assign product = collections.cart.products[i] %}
+    {% assign modifier = 's' %}
+    {% include 'product-card' %}
+  {% endfor %}
+</div>
