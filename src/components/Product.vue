@@ -90,31 +90,39 @@ import QueryString from 'query-string';
 export default {
   data() {
     return {
+      compareAtPriceMax: 0,
       isSale: false,
       maxQuantity: 5,
+      price: 0,
       product: {},
       quantity: 1,
+      selectedAvailable: true,
       selectedVariant: '',
     };
   },
   beforeCreate() {
     const pathname = window.location.pathname.split('/');
     const handle = pathname[pathname.length - 1];
-
     axios.get(`/products/${handle}.js`).then((response) => {
       this.product = response.data;
+
       const query = QueryString.parse(window.location.search);
-      this.selectedVariant = query.variant ? query.variant.id : response.data.variants[0].id;
+      this.selectedVariant = query.variant ? parseInt(query.variant) : this.product.variants[0].id;
     });
   },
   watch: {
     selectedVariant(val) {
+      if(!this.product.variants) return false;
+
       const variant = this.product.variants.filter(option => option.id === val);
+
+      if(!variant) return false;
+
       this.price = variant[0].price;
       this.compareAtPriceMax = variant[0].compare_at_price_max;
       this.selectedAvailable = variant[0].available;
       this.isSale = variant[0].compare_at_price_max > 0 && variant[0].price > variant[0].compare_at_price_max;
-      window.location.search = QueryString.stringify({ variant: val });
+      this.updateURL();
     },
   },
   methods: {
@@ -123,9 +131,17 @@ export default {
         id: this.selectedVariant,
         quantity: this.quantity,
       };
-      axios.post(`/card/add.js`, data).then((response) => {
+      axios.post(`/cart/add.js`, data).then((response) => {
         console.log(`Added ${quantity} ${product.title} to cart! 🎉`);
       });
+    },
+    updateURL() {
+      const state = { variant: this.selectedVariant };
+      window.history.replaceState(
+        state,
+        this.selectedVariant,
+        `${window.location.pathname}?${QueryString.stringify(state)}`,
+      );
     },
   },
 }
