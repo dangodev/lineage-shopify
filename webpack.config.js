@@ -13,29 +13,29 @@ module.exports = {
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        use: 'vue-loader',
       },
       {
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src'),
-        loader: 'babel-loader',
+        use: 'babel-loader',
         test: /\.js$/,
       },
       {
         test: /App\.css/,
-        loader: extractStyles.extract({
+        use: extractStyles.extract({
           loader: 'css-loader?importLoaders=1!postcss-loader',
         }),
       },
       {
         test: /Font\.css/,
-        loader: extractFonts.extract({
+        use: extractFonts.extract({
           loader: 'css-loader',
         }),
       },
       {
         test: /\.(woff|woff2)$/,
-        loader: 'url-loader',
+        use: 'url-loader',
       },
     ],
   },

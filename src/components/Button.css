@@ -18,7 +18,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: var(--t-text-fontFamily);
-  font-size: 1.125em;
+  font-size: var(--step-up-1);
   font-weight: 500;
   letter-spacing: 0.0625em;
   line-height: 1;
@@ -62,7 +62,10 @@
 /* Needed for hover effects */
 .button-inner {
   display: block;
-  padding: 0.75em 1.5em 0.875em;
+  padding-bottom: 0.875em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.75em;
   position: relative;
   text-decoration: none;
   transition: color 200ms;
@@ -132,6 +135,27 @@
   &:hover {
     & .button-inner {
       color: var(--black);
+    }
+  }
+}
+
+/**
+ * @section State
+ */
+
+.button[disabled],
+.button.is-disabled {
+  box-shadow: 0 0 0 2px var(--gray);
+  color: var(--gray);
+
+  &::before {
+    display: none;
+  }
+
+  &:focus,
+  &:hover {
+    & .button-inner {
+      color: var(--gray);
     }
   }
 }

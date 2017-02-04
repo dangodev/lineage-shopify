@@ -1,6 +1,5 @@
 /**
  * Config
- *
  * Variables and global settings
  */
 
@@ -46,6 +45,21 @@
 :root {
   --t-text-fontFamily: "FF DIN", sans-serif;
   --t-text-fontWeight: 400;
+}
+
+/* Type Scale (http://spencermortensen.com/articles/typographic-scale/) */
+
+:root {
+  --step-down-1: 0.8706em;
+  --step-down-2: 0.7579em;
+  --step-down-3: 0.6599em;
+  --step-down-4: 0.5745em;
+  --step-down-5: 0.5em;
+  --step-up-1: 1.1487em;
+  --step-up-2: 1.3195em;
+  --step-up-3: 1.5157em;
+  --step-up-4: 1.7511em;
+  --step-up-5: 2em;
 }
 
 /**

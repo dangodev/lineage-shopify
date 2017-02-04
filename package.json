@@ -39,7 +39,9 @@
     "webpack": "^2"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "normalize.css": "^5.0",
+    "query-string": "^4.3.1",
     "siema": "^1.1",
     "vue": "^2.1"
   }

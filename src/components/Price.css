@@ -1,0 +1,38 @@
+/**
+ * Price
+ * Product price displays
+ */
+
+/**
+ * @section Base
+ */
+
+.price {
+  display: flex;
+  font-size: var(--step-up-4);
+  font-weight: 500;
+  justify-content: center;
+}
+
+/**
+ * @section Subcomponents
+ */
+
+.price-amount {
+  display: flex;
+  position: relative;
+}
+
+.price-cents {
+  &::before {
+    content: ".";
+  }
+}
+
+.price-currency {
+  font-size: var(--step-down-2);
+  font-weight: 700;
+  position: absolute;
+  right: 100%;
+  top: 12.5%;
+}

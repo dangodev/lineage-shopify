@@ -1,6 +1,5 @@
 /**
  * Lineage Hours
- *
  * Store-specific hours of operation
  */
 

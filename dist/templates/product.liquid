@@ -11,65 +11,55 @@
           {{ product.description }}
         </div>
         <div class="well">
-          <form action="/cart/add" method="post" enctype="multipart/form-data">
-            {% if product.type == "Coffee Beans" %}
-            <fieldset class="well">
-              <legend>Size</legend>
-              <div class="switchboard switchboard--light">
-                <input id="size_sm" type="radio" name="size" class="switchboard-switch" checked value="12">
-                <label for="size_sm" class="switchboard-label">
-                  <div><svg aria-label="12oz Bag" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg></div>
-                  12oz<small class="mt025">Individual / Family</small>
-                </label>
-                <input id="size_lg" type="radio" name="size" class="switchboard-switch" value="80">
-                <label for="size_lg" class="switchboard-label">
-                  <div><svg aria-label="5lb Wholesale Bag" class="icon icon--bag" role="img"><use xlink:href="#icon_wholesale"></use></svg></div>
-                  5lb<small class="mt025">Wholesale</small>
-                </label>
-              </div>
-            </fieldset>
-
-            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-              <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-              <span itemprop="price">{{ product.selected_variant.price }}</span>
-
-              {% if product.compare_at_price_max > product.price %}
-              <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-              <p id="ComparePrice">
-                {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-              </p>
+          <v-product is-coffee="true">
+            <form action="/cart/add" method="post" enctype="multipart/form-data">
+              {% if product.type == "Coffee Beans" %}
+              <fieldset class="well">
+                <legend>{{ product.variants[0].option1 }}</legend>
+                <div class="switchboard switchboard--light">
+                  {% for variant in product.variants %}
+                    <input
+                      id="variant_{{ forloop.index }}"
+                      type="radio"
+                      name="product_variants"
+                      class="switchboard-switch"
+                      {% if variant == product.selected_or_first_available_variant %}checked{% endif %}
+                      {% unless variant.available %}disabled{% endunless %}
+                      value="{{ variant.id }}"
+                    >
+                    <label for="variant_{{ forloop.index }}" class="switchboard-label">
+                      <div><svg aria-label="12oz Bag" class="icon icon--bag" role="img"><use xlink:href="#icon_{% cycle 'bag', 'wholesale', '' %}"></use></svg></div>
+                      {{ variant.title }}<small class="mt025">{% cycle 'Individual / Family', 'Wholesale', '' %}</small>
+                    </label>
+                  {% endfor %}
+                </div>
+              </fieldset>
+              {% else %}
               {% endif %}
-            </div>
 
-            <fieldset class="well">
-              <legend>Quantity</legend>
-              <div class="switchboard">
-                {% for i in (1..5) %}
-                <input id="quantity_{{ i }}" type="radio" {% if forloop.first %}checked {% endif %}name="quantity" class="switchboard-switch" value="{{ i }}">
-                <label for="quantity_{{ i }}" class="switchboard-label">{{ i }}<small>{{ i | pluralize: 'bag', 'bags' }}</small></label>
-                {% endfor %}
+              <fieldset class="well">
+                <legend>Quantity</legend>
+                <div class="switchboard">
+                  {% for i in (1..5) %}
+                  <input id="quantity_{{ i }}" type="radio" {% if forloop.first %}checked {% endif %}name="quantity" class="switchboard-switch" value="{{ i }}">
+                  <label for="quantity_{{ i }}" class="switchboard-label">{{ i }}<small>{{ i | pluralize: 'bag', 'bags' }}</small></label>
+                  {% endfor %}
+                </div>
+              </fieldset>
+
+              <div class="well well--l tac">
+                {% assign price = product.selected_or_first_available_variant.price %}
+                {% include 'price' %}
               </div>
-            </fieldset>
-            {% endif %}
 
-            <select name="id" id="product_variants">
-              {% for variant in product.variants %}
-                {% if variant.available %}
-                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-                {% else %}
-                  <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
-                {% endif %}
-              {% endfor %}
-            </select>
+              <div class="well well--l tac">
+                <button type="submit" name="add" id="AddToCart" class="button button--l">
+                  <span id="AddToCartText" class="button-inner">{{ 'products.product.add_to_cart' | t }}</span>
+                </button>
+              </div>
 
-            <div class="well well--l tac">
-              <button type="submit" name="add" id="AddToCart" class="button button--l">
-                <span id="AddToCartText" class="button-inner">{{ 'products.product.add_to_cart' | t }}</span>
-              </button>
-            </div>
-
-          </form>
+            </form>
+          </v-product>
         </div>
       </article>
       <aside class="layout-aside">

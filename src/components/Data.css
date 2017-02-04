@@ -9,6 +9,7 @@
  */
 
 .data {
+  border-collapse: collapse;
   font-size: 13px;
   width: 100%;
 }
@@ -17,13 +18,25 @@
  * @section Submodules
  */
 
+.data-row {
+  box-shadow: inset 0 -1px var(--gray);
+}
+
 .data-term {
-  padding-bottom: var(--space-025);
+  padding-bottom: var(--space-0125);
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: var(--space-025);
   text-align: left;
+  vertical-align: bottom;
 }
 
 .data-value {
   font-weight: 500;
-  padding-bottom: var(--space-025);
+  padding-bottom: var(--space-0125);
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: var(--space-025);
   text-align: right;
+  vertical-align: bottom;
 }
