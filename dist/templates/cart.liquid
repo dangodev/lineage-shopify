@@ -1,123 +1,75 @@
-{% if cart.item_count > 0 %}
-  <div class="well">
-    <div class="cell">
-      <h1>{{ 'cart.general.title' | t }}</h1>
-      <form action="/cart" method="post" novalidate class="cart table-wrap">
-        <table class="cart">
-          <tbody>
+<div class="well">
+  <div class="cell">
+    <h1>{{ 'cart.general.title' | t }}</h1>
+    {% if cart.item_count > 0 %}
+      <v-cart :inherited-cart="cart">
+        <form action="/cart" method="post" novalidate class="cart table-wrap">
+          <div class="cart">
             {% for item in cart.items %}
               {% assign product = item.product %}
-              <tr class="cart-item">
+              <div class="cart-item">
                 {% capture product_type %}{{ product.collections | map: 'handle' }}{% endcapture %}
-                <td class="cart-deets">
+                <div class="cart-icon">
                   {% if product_type contains 'coffee' %}
                     <svg aria-label="Coffee" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg>
                   {% elsif product_type contains 'gear' %}
                     <svg aria-label="Coffee" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg>
                   {% endif %}
-                </td>
-                <td>
-                  <strong class="cart-item-title">{{ item.title }}</strong>
-                  <div class="cart-item-region">{{ product.metafields.c_f.region }}</div>
-                  <div>{% include 'notes' %}</div>
-                </td>
-                <td class="cart-price">
+                </div>
+                <a class="cart-name" href="{{ item.url }}">
+                  <h2>{{ item.title }}</h2>
+                  <h3>View Info</h3>
+                </a>
+                <div class="cart-price">
+                  <small>Price</small>
                   {{ item.price | money }}
-                </td>
-                <td class="cart-actions">
-                  <v-stepper>
-                    <button class="stepper-button" @click="decrement">−</button>
-                    <input type="number" class="stepper" v-model="quantity" value="{{ item.quantity }}">
-                    <button class="stepper-button" @click="increment">+</button>
-                  </v-stepper>
-                </td>
-              </tr>
+                </div>
+                <div class="cart-actions">
+                  <small>Quantity</small>
+                  <input type="number" class="stepper" value="{{ item.quantity }}">
+                </div>
+              </div>
             {% endfor %}
-          </tbody>
-        </table>
-      </form>
-    </div>
-  </div>
-              {% assign property_size = item.properties | size %}
-              {% if property_size > 0 %}
-                {% for p in item.properties %}
-                  {% unless p.last == blank %}
-                    {{ p.first }}:
-
-                    {% comment %}
-                      Check if there was an uploaded file associated
-                    {% endcomment %}
-                    {% if p.last contains '/uploads/' %}
-                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                    {% else %}
-                      {{ p.last }}
-                    {% endif %}
-
-                    <br>
-                  {% endunless %}
-                {% endfor %}
-              {% endif %}
-
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                <small>{{ 'cart.general.remove' | t }}</small>
-              </a>
-            </td>
-            <td data-label="{{ 'cart.label.price' | t }}">
-              <span class="h3">
-                {{ item.price | money }}
-              </span>
-            </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
-            </td>
-            <td data-label="{{ 'cart.label.total' | t }}" class="text-right">
-              {% if item.original_line_price != item.line_price %}
-                <span class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></span>
-              {% endif %}
-              <span class="h3">
-                {{ item.line_price | money }}
-              </span>
-              {% for discount in item.discounts %}
-                <span class="cart-item__discount">{{ discount.title }}</span>
-              {% endfor %}
-            </td>
-          </tr>
-    <div class="grid cart__row">
-      {% if settings.cart_notes_enable %}
-        <div class="grid__item two-thirds small--one-whole">
-          <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-          <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+          </div>
+          <div class="cart-discounts">
+            <h2>Discounts</h2>
+            – {{ cart.total_discount | money }}
+          </div>
+          <div class="cart-summary">
+            <h2>Total</h2>
+            <div v-if="isLoading" class="cart-spinner spinner"></div>
+            {{ cart.total_price | money }}
+          </div>
+          <div class="cart-colophon">
+            Price before tax & shipping.
+            <br/>
+            <br/>
+            You’ll be able to enter promo codes (if
+            any) and shipping info on the next screen.
+          </div>
+          <div class="cart-note">
+            <label for="note">Note for the seller:</label>
+            <textarea id="note" name="note" placeholder="Give us special instructions, or just say hi! 👋" v-model="cart.note"></textarea>
+          </div>
+          <div class="cart-checkout">
+            <button type="submit" class="button"><span class="button-inner">Check Out</span></button>
+          </div>
         </div>
-      {% endif %}
-      <div class="grid__item text-right{% if settings.cart_notes_enable %} one-third small--one-whole{% endif %}">
-        <p>
-          <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-          <span class="h3 cart__subtotal">{{ cart.total_price | money }}</span>
-        </p>
-        {% if cart.total_discounts > 0 %}
-          {% assign savings = cart.total_discounts | money %}
-          <p>
-            <span class="cart-subtotal__savings"><em>{{ 'cart.general.savings_html' | t: price: savings }}</em></span>
-          </p>
-        {% endif %}
-        <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
-        <button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
-        <button type="submit" name="checkout" class="btn">{{ 'cart.general.checkout' | t }}</button>
       </div>
-    </div>
-  </form>
-{% else %}
-  {% comment %}
-    The cart is empty
-  {% endcomment %}
-  <h2>{{ 'cart.general.title' | t }}</h2>
-  <p>{{ 'cart.general.empty' | t }}</p>
-  <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
-{% endif %}
+    </v-cart>
+    {% else %}
+      <v-cart>
+        <div class="cart-zero">
+          <blockquote><cite></cite></blockquote>
+          Nothing in the cart.
+        </div>
+      </v-cart>
+    {% endif %}
+  </div>
 </div>
 
 <div class="cell well">
-<h2 class="mb0">Also Check these out</h2>
+<h2 class="mb0">Check these out</h2>
 <h4 class="mt0 tcgy">(no pressure)</h4>
 <div class="has-card">
   {% for i in (1..3) %}

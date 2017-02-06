@@ -1,6 +1,5 @@
 /**
  * Stepper
- *
  * Up and down
  */
 
@@ -9,13 +8,28 @@
  */
 
 .stepper {
-  background-color: var(--gray-t);
-  border-radius: 2em;
   border: none;
-  height: 1.5em;
-  line-height: 1.5;
+  font-family: var(--text-font-family);
+  font-size: var(--step-up-1);
+  font-weight: 500;
+  height: 1em;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0;
   text-align: center;
+  transition: background-color 200ms;
   width: 2em;
+
+  &::-webkit-inner-spin-button, 
+  &::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+
+  &:focus {
+    background-color: var(--blue-t);
+    outline: none;
+  }
 }
 
 /**
@@ -24,10 +38,21 @@
 
 .stepper-button {
   appearance: none;
-  background-color: none;
+  background-color: var(--black);
+  border-radius: 50%;
   border: none;
+  color: white;
+  cursor: pointer;
   height: 1.5em;
   line-height: 1.5;
+  padding: 0;
   text-align: center;
+  transition: background-color 200ms;
   width: 1.5em;
+
+  &:focus,
+  &:hover {
+    background-color: var(--blue);
+    outline: none;
+  }
 }

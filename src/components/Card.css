@@ -15,7 +15,7 @@
   text-decoration: none;
   width: 100%;
 
-  @media (--query-s) {
+  @media (--s) {
     width: 50%;
   }
 }
@@ -49,20 +49,21 @@
 }
 
 .card-title {
-  font-size: 24px;
-  margin-top: var(--space-025);
+  font-size: var(--step-up-1);
   margin-bottom: 0;
+  margin-top: var(--space-025);
 }
 
 .card-subtitle {
+  font-size: var(--step-down-1);
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .card-label {
-  font-size: 12px;
-  margin-bottom: 0;
+  font-size: var(--step-down-2);
   font-weight: 400;
+  margin-bottom: 0;
   margin-top: 0;
 }
 

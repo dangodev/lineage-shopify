@@ -1,0 +1,36 @@
+/**
+ * Badge
+ * Hey look at this
+ */
+
+/**
+ * @section Base
+ */
+
+.badge {
+  position: relative;
+}
+
+/**
+ * @section Subcomponents
+ */
+
+.badge-count {
+  align-items: center;
+  background-color: var(--blue);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  color: var(--blue-s);
+  content: "";
+  display: flex;
+  font-size: var(--step-down-3);
+  font-weight: 500;
+  height: var(--space-0625);
+  justify-content: center;
+  left: 100%;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -100%);
+  width: var(--space-0625);
+}

@@ -21,12 +21,14 @@
 </head>
 
 <body id="{{ page_title | handle }}">
-  {% include 'icons' %}
-  {% include 'header' %}
-  <main id="vue-app" role="main">
-    {{ content_for_layout }}
-  </main>
-  {% include 'footer' %}
+  <div id="vue-app">
+    {% include 'icons' %}
+    {% include 'header' %}
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+    {% include 'footer' %}
+  </div>
   {{ 'app.bundle.js' | asset_url | script_tag }}
   {% comment %}Async webfont loading 2/2: Non-IE{% endcomment %}
   <!--[if !IE]> -->

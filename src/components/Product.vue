@@ -5,7 +5,7 @@
 
 <template>
   <div>
-    <fieldset class="well">
+    <fieldset class="well" v-if="isCoffee">
       <legend>Size</legend>
       <div class="switchboard switchboard--light">
         <template v-for="(variant, index) in product.variants">
@@ -100,6 +100,9 @@ export default {
       selectedVariant: '',
     };
   },
+  props: {
+    isCoffee: Boolean,
+  },
   beforeCreate() {
     const pathname = window.location.pathname.split('/');
     const handle = pathname[pathname.length - 1];
@@ -131,8 +134,9 @@ export default {
         id: this.selectedVariant,
         quantity: this.quantity,
       };
-      axios.post(`/cart/add.js`, data).then((response) => {
-        console.log(`Added ${quantity} ${product.title} to cart! 🎉`);
+      axios.post('/cart/add.js', data).then((response) => {
+        console.log(`Added ${this.quantity} ${this.product.title} to cart! 🎉`);
+        this.$parent.$options.methods.updateCart({ scroll: true });
       });
     },
     updateURL() {

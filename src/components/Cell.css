@@ -13,7 +13,7 @@
   margin-right: auto;
   max-width: calc(100% - var(--space-2));
 
-  @media (--query-m) {
+  @media (--m) {
     max-width: var(--viewport-m);
   }
 }

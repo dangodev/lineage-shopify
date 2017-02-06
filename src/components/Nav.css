@@ -19,7 +19,7 @@
     margin: 0;
     padding: 0;
 
-    @media (--query-s) {
+    @media (--s) {
       justify-content: flex-start;
     }
   }
@@ -28,7 +28,7 @@
     margin: 0;
     padding: 0;
 
-    @media (--query-s) {
+    @media (--s) {
       margin-left: 0.5em;
       margin-right: 0.5em;
     }
@@ -40,19 +40,10 @@
  */
 
 .nav-cart {
-  position: relative;
+  cursor: pointer;
 
-  &[data-cart]::after {
-    background-color: var(--blue);
-    border-radius: 50%;
-    border: 3px solid var(--white);
-    content: "";
-    height: var(--space-05);
-    left: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -100%);
-    width: var(--space-05);
+  & svg {
+    pointer-events: none;
   }
 }
 
@@ -76,7 +67,7 @@
     color: var(--gray-s);
   }
 
-  @media (--query-s) {
+  @media (--s) {
     border-bottom-width: 4px;
     font-size: 100%;
     padding-bottom: 1.75em;

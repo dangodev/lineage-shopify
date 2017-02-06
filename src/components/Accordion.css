@@ -42,7 +42,7 @@
   color: var(--gray-s);
   cursor: pointer;
   display: block;
-  font-family: var(--t-text-fontFamily);
+  font-family: var(--text-font-family);
   font-size: 0.75em;
   font-weight: 500;
   letter-spacing: 0.0625em;

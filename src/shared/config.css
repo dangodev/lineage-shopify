@@ -24,6 +24,7 @@
   --white: white;
 
   /* Tints */
+  --blue-t: #a0f2f2;
   --gray-t: #dae7ec;
   --gray-tt: #fafcfc;
 
@@ -43,8 +44,7 @@
  */
 
 :root {
-  --t-text-fontFamily: "FF DIN", sans-serif;
-  --t-text-fontWeight: 400;
+  --text-font-family: "FF DIN", sans-serif;
 }
 
 /* Type Scale (http://spencermortensen.com/articles/typographic-scale/) */
@@ -93,10 +93,10 @@
   --viewport-xl: 1800px;
 }
 
-@custom-media --query-s (width >= 600px);
-@custom-media --query-m (width >= 900px);
-@custom-media --query-l (width >= 1200px);
-@custom-media --query-xl (width >= 1800px);
+@custom-media --s (width >= 600px);
+@custom-media --m (width >= 900px);
+@custom-media --l (width >= 1200px);
+@custom-media --xl (width >= 1800px);
 
 /**
  * @section Animations
@@ -114,3 +114,13 @@
   --transition-standard: var(--transition-default);
 }
 
+/**
+ * @section Z-index layers
+ */
+
+:root {
+  --layer-base: 10;
+  --layer-nav: 20;
+  --layer-popover: 30;
+  --layer-dialog: 40;
+}

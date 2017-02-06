@@ -8,7 +8,7 @@
       <li><a class="nav-link{% if collection.handle == 'gear' or product_type contains 'gear' %} is-active{% endif %}" href="{{ collections.gear.url }}">Gear</a></li>
       <li><a class="nav-link{% if page.handle == 'guides' %} is-active{% endif %}" href="{{ pages.guides.url }}">Guides</a></li>
       <li><a class="nav-link{% if page.handle == 'about-us' %} is-active{% endif %}" href="{{ pages.about-us.url }}">About</a></li>
-      <li><a class="nav-link nav-cart {% if template == 'cart' %} is-active{% endif %}" {% if cart.item_count > 0 %}data-cart="{{ cart.item_count }}" {% endif %}href="/cart"><svg aria-label="Cart" class="icon icon--cart" role="img"><use xlink:href="#icon_cart"></use></svg></a></li>
+      <li><v-cart-preview :cart="cart"><a class="nav-link nav-cart {% if template == 'cart' %} is-active{% endif %}" href="/cart"><svg aria-label="Cart" class="icon icon--cart" role="img"><use xlink:href="#icon_cart"></use></svg></a></v-cart></li>
     </ul>
   </nav>
 </header>

@@ -1,0 +1,130 @@
+/**
+ * Popover
+ * Floating container
+ */
+
+@import "../shared/config.css";
+
+/**
+ * @section Base
+ */
+
+.popover {
+  cursor: auto;
+  position: relative;
+  z-index: calc(var(--layer-popover) + 1);
+}
+
+/**
+ * @section Subcomponents
+ */
+
+/* CTA */
+
+.popover-cta {
+  background-color: var(--gray-t);
+  color: black;
+  display: block;
+  font-size: var(--step-down-1);
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Inner */
+
+.popover-inner {
+  background-color: white;
+  border-radius: var(--space-025);
+  box-shadow: 0 var(--space-025) var(--space) color(var(--black) alpha(-75%));
+  opacity: 0;
+  padding-top: var(--space-05);
+  padding-bottom: var(--space-05);
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateY(0);
+  transition: transform 200ms var(--transition-standard), opacity 200ms, visibility 0ms 200ms;
+  visibility: hidden;
+  width: 10em;
+  z-index: calc(var(--layer-popover) + 1);
+
+  &::before {
+    border-color: transparent transparent white transparent;
+    border-style: solid;
+    border-width: var(--space-0375);
+    bottom: 100%;
+    content: "";
+    position: absolute;
+    right: var(--space-05);
+  }
+}
+
+/* Item */
+
+.popover-item {
+  box-shadow: inset 0 1px var(--gray);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--space-025);
+  padding-left: var(--space-05);
+  padding-right: var(--space-05);
+  padding-top: var(--space-025);
+  text-decoration: none;
+
+  & h3 { 
+    color: black;
+    font-size: var(--step-down-1);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.375;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-transform: none;
+  }
+
+  & h4 {
+    background-color: var(--gray-t);
+    border-radius: 50%;
+    color: var(--black);
+    font-size: var(--step-down-2);
+    font-weight: 500;
+    height: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    width: 1.5em;
+  }
+}
+
+/* Overlay */
+
+.popover-overlay {
+  bottom: 0;
+  cursor: auto;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: var(--layer-popover);
+}
+
+/**
+ * @section State
+ */
+
+.popover.is-open {
+  & .popover-inner {
+    opacity: 1;
+    transform: translateY(var(--space-05));
+    transition: transform 200ms var(--transition-standard), opacity 200ms;
+    visibility: visible;
+  }
+
+  & + .popover-overlay {
+    display: block;
+  }
+}

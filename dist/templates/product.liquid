@@ -11,7 +11,7 @@
           {{ product.description }}
         </div>
         <div class="well">
-          <v-product is-coffee="true">
+          <v-product{% if product.type == "Coffee Beans" %} :is-coffee="true"{% endif %}>
             <form action="/cart/add" method="post" enctype="multipart/form-data">
               {% if product.type == "Coffee Beans" %}
               <fieldset class="well">
@@ -34,7 +34,6 @@
                   {% endfor %}
                 </div>
               </fieldset>
-              {% else %}
               {% endif %}
 
               <fieldset class="well">

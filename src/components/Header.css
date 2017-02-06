@@ -19,15 +19,15 @@
   padding-bottom: 0;
   padding-top: var(--space-025);
 
-  @media (--query-s) {
+  @media (--s) {
     padding-top: 0;
   }
 
-  @media (--query-m) {
+  @media (--m) {
     max-width: var(--viewport-m);
   }
 
-  @media (--query-l) {
+  @media (--l) {
     max-width: var(--viewport-l);
   }
 }
@@ -48,7 +48,7 @@
   margin-right: auto;
   width: 100%;
 
-  @media (--query-s) {
+  @media (--s) {
     margin-right: 0;
     width: auto;
   }
