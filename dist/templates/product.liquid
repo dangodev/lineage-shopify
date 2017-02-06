@@ -52,7 +52,7 @@
               </div>
 
               <div class="well well--l tac">
-                <button type="submit" name="add" id="AddToCart" class="button button--l">
+                <button type="submit" name="add" id="AddToCart"{% unless product.available %} disabled="disabled"{% endunless %} class="button button--l">
                   <span id="AddToCartText" class="button-inner">{{ 'products.product.add_to_cart' | t }}</span>
                 </button>
               </div>

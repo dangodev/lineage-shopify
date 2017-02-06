@@ -9,6 +9,7 @@
 
 .price {
   display: flex;
+  flex-wrap: wrap;
   font-size: var(--step-up-4);
   font-weight: 500;
   justify-content: center;
@@ -35,4 +36,14 @@
   position: absolute;
   right: 100%;
   top: 12.5%;
+}
+
+.price-status {
+  display: block;
+  color: var(--gray);
+  font-size: var(--step-down-3);
+  letter-spacing: 0.0625em;
+  margin-top: var(--space-05);
+  text-transform: uppercase;
+  width: 100%;
 }
