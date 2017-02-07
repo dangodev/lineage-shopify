@@ -10,7 +10,10 @@
 <template>
   <div class="cart">
     <div class="cart-zero" v-if="!cart.items">
-      <blockquote>{{ quote[0] }}<cite>{{ quote[1] }}</cite></blockquote>
+      <blockquote>
+        {{ quoteBank[randomQuote][0] }}
+        <cite>{{ quoteBank[randomQuote][1] }}</cite>
+      </blockquote>
       Nothing in the cart.
     </div>
     <template v-else>
@@ -76,18 +79,19 @@ export default {
         ['If it weren’t for the coffee, I’d have no identifiable personality whatsoever.', 'David Letterman'],
         ['Good communication is just as stimulating as black coffee, and just as hard to sleep after.', 'Anne Morrow Lindbergh'],
         ['I’d rather take coffee than compliments.', 'Louisa May Alcott'],
-        ['As long as there was coffee in the world, how bad could things be?', 'Cassandra Clare']
+        ['As long as there was coffee in the world, how bad could things be?', 'Cassandra Clare'],
         ['Coffee is a way of stealing time that should by rights belong to your older self.', 'Terry Pratchet'],
-        ['Life’s too short to drink crappy coffee and cry over boys who don’t care.', 'Anonymous']
+        ['Life’s too short to drink crappy coffee and cry over boys who don’t care.', 'Anonymous'],
       ],
-      quote: '',
+      randomQuote: 0,
     };
+  },
+  beforeMount() {
+    const max = this.quoteBank.length;
+    this.randomQuote = Math.floor(Math.random() * max);
   },
   created() {
     document.addEventListener('keydown', (e) => e.keyCode === 13 ? false : true);
-    const max = this.quoteBank.length;
-    const random = Math.floor(Math.random() * max);
-    this.quote = this.quoteBank[random];
   },
   props: {
     inheritedCart: Object,

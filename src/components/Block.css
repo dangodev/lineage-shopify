@@ -12,9 +12,10 @@
   align-items: center;
   background-color: var(--gray);
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  margin-left: var(--space-05);
   margin-bottom: var(--space-05);
+  margin-left: var(--space-05);
   min-height: 25vh;
   text-decoration: none;
   width: 100%;
@@ -24,6 +25,47 @@
     max-height: 20em;
     height: 50vh;
     width: auto;
+  }
+}
+
+/**
+ * @section Subcomponents
+ */
+
+/* CTA */
+
+.block-cta {
+  margin-top: var(--space-05);
+}
+
+/* Sub text */
+
+.block-subtext {
+  color: white;
+  font-size: 1em;
+
+  & .block-price {
+    color: var(--gray);
+    font-weight: 500;
+  }
+}
+
+/* Text */
+
+.block-text {
+  color: white;
+  font-size: var(--step-up-1);
+  font-weight: 500;
+  margin-bottom: 0.125em;
+}
+
+/**
+ * @section Modifiers
+ */
+
+.block--mini {
+  @media (--s) {
+    height: 10em;
   }
 }
 

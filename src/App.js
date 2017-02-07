@@ -31,8 +31,8 @@ Vue.filter('cents', (val) => {
   const valString = val + '';
   return valString.slice(-2);
 });
-Vue.filter('dollars', (val) => Math.round(val / 100));
-Vue.filter('inCents', (val) => (val / 100).toFixed(2));
+Vue.filter('dollars', val => Math.round(val / 100));
+Vue.filter('inCents', val => (val / 100).toFixed(2));
 
 // App wrapper
 

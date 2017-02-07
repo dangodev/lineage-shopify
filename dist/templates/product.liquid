@@ -11,13 +11,15 @@
           {{ product.description }}
         </div>
         <div class="well">
-          <v-product{% if product.type == "Coffee Beans" %} :is-coffee="true"{% endif %}>
+          {% assign product_type = product.type | handleize %}
+          <v-product product-type="{{ product_type }}">
             <form action="/cart/add" method="post" enctype="multipart/form-data">
-              {% if product.type == "Coffee Beans" %}
+              {% if product_type == "coffee-beans" %}
               <fieldset class="well">
                 <legend>{{ product.variants[0].option1 }}</legend>
                 <div class="switchboard switchboard--light">
                   {% for variant in product.variants %}
+                    {% if variant.options.contains "Size" %}
                     <input
                       id="variant_{{ forloop.index }}"
                       type="radio"
@@ -31,20 +33,38 @@
                       <div><svg aria-label="12oz Bag" class="icon icon--bag" role="img"><use xlink:href="#icon_{% cycle 'bag', 'wholesale', '' %}"></use></svg></div>
                       {{ variant.title }}<small class="mt025">{% cycle 'Individual / Family', 'Wholesale', '' %}</small>
                     </label>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </fieldset>
+              {% elsif product_type == "coffee-subscription" %}
+              <fieldset class="well">
+                <legend>Deliver 1 bag every:</legend>
+                <div class="switchboard">
+                  {% for variant in product.variants %}
+                  <input id="variant_{{ forloop.index }}" type="radio" {% if forloop.first %}checked {% endif %}name="product_variants" class="switchboard-switch" value="{{ variant.id }}">
+                  <label for="variant_{{ forloop.index }}" class="switchboard-label">{{ forloop.index }}<small>{{ forloop.index | pluralize: 'week', 'weeks' }}</small></label>
                   {% endfor %}
                 </div>
               </fieldset>
               {% endif %}
 
+              {% if product_type != "coffee-subscription" %}
               <fieldset class="well">
                 <legend>Quantity</legend>
                 <div class="switchboard">
                   {% for i in (1..5) %}
                   <input id="quantity_{{ i }}" type="radio" {% if forloop.first %}checked {% endif %}name="quantity" class="switchboard-switch" value="{{ i }}">
-                  <label for="quantity_{{ i }}" class="switchboard-label">{{ i }}<small>{{ i | pluralize: 'bag', 'bags' }}</small></label>
+                  <label for="quantity_{{ i }}" class="switchboard-label">
+                    {{ i }}
+                    {% if product_type == "coffee-beans" or product_type == "coffee-subscription" %}
+                    <small>{{ i | pluralize: 'bag', 'bags' }}</small>
+                    {% endif %}
+                  </label>
                   {% endfor %}
                 </div>
               </fieldset>
+              {% endif %}
 
               <div class="well well--l tac">
                 {% assign price = product.selected_or_first_available_variant.price %}
@@ -59,6 +79,24 @@
 
             </form>
           </v-product>
+
+          {% if product_type == "coffee-beans" %}
+          <a href="/products/subscription" class="block block--mini" style="background-image:url({{ 'bg-wholesale.jpg' | asset_img_url 'original' }})">
+            <div class="block-text">Want coffee delivered to your door?</div>
+            <div class="block-subtext">Subscriptions starting at <span class="block-price">{{ all_products["subscription"].price_min | money }}</span></div>
+            <span class="block-cta button button--s"><span class="button-inner">Roaster’s Choice Subscription</span></span>
+          </a>
+          {% elsif product_type == "coffee-subscription" %}
+          <a href="/pages/wholesale" class="block block--mini" style="background-image:url({{ 'bg-coffee.jpg' | asset_img_url 'original' }})">
+            <div class="block-text">Need more coffee?</div>
+            <span class="block-cta button button--s"><span class="button-inner">Try Wholesale</span></span>
+          </a>
+          {% elsif product_type == "gear" %}
+          <a href="/collections/coffee" class="block block--mini" style="background-image:url({{ 'bg-wholesale.jpg' | asset_img_url 'original' }})">
+            <div class="block-text">Want some coffee to go with your gear?</div>
+            <span class="block-cta button button--s"><span class="button-inner">Browse Coffees</span></span>
+          </a>
+          {% endif %}
         </div>
       </article>
       <aside class="layout-aside">
@@ -142,9 +180,11 @@
       {% endif %}
     </div>
   </div>
+  {% if related_1 or related_2 or opposite %}
   <div class="cell well tac">
     <a href="{{ this_product.collections[0].url }}" class="button">
       <span class="button-inner">See All {{ this_product.collections[0].title }}</span>
     </a>
   </div>
+  {% endif %}
 </div>

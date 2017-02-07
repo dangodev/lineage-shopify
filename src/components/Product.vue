@@ -5,7 +5,7 @@
 
 <template>
   <div>
-    <fieldset class="well" v-if="isCoffee">
+    <fieldset class="well" v-if="productType == 'coffee-beans'">
       <legend>Size</legend>
       <div class="switchboard switchboard--light">
         <template v-for="(variant, index) in product.variants">
@@ -18,7 +18,7 @@
             type="radio"
             v-model="selectedVariant"
           >
-          <label :for="`option_${index}`" class="switchboard-label">
+          <label :for="`variant_${index}`" class="switchboard-label">
             <template v-if="variant.title == '12oz'">
               <div><svg aria-label="12oz Bag" class="icon icon--bag" role="img"><use xlink:href="#icon_bag"></use></svg></div>
               {{ variant.title }}<small class="mt025">Individual / Family</small>
@@ -32,7 +32,28 @@
       </div>
     </fieldset>
 
-    <fieldset class="well">
+    <fieldset class="well" v-if="productType == 'coffee-subscription'">
+      <legend>Deliver 1 bag every:</legend>
+      <div class="switchboard">
+        <template v-for="(variant, index) in product.variants" v-if="">
+          <input
+            :id="`variant_${index}`"
+            :value="variant.id"
+            class="switchboard-switch"
+            name="product_variants"
+            type="radio"
+            v-model="selectedVariant"
+          >
+          <label :for="`variant_${index}`" class="switchboard-label">
+            {{ index + 1 }}
+            <small v-if="index === 0">week</small>
+            <small v-else>weeks</small>
+          </label>
+        </template>
+      </div>
+    </fieldset>
+
+    <fieldset class="well" v-if="productType != 'coffee-subscription'">
       <legend>Quantity</legend>
       <div class="switchboard">
         <template v-for="i in maxQuantity">
@@ -46,8 +67,10 @@
           >
           <label :for="`quantity_${i}`" class="switchboard-label">
             {{ i }}
+            <template v-if="productType == 'coffee-beans' || productType == 'coffee-subscription'">
             <small v-if="i === 1">bag</small>
             <small v-else>bags</small>
+            </template>
           </label>
         </template>
       </div>
@@ -101,7 +124,7 @@ export default {
     };
   },
   props: {
-    isCoffee: Boolean,
+    productType: String,
   },
   beforeCreate() {
     const pathname = window.location.pathname.split('/');
