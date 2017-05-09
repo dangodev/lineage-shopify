@@ -8,8 +8,6 @@
  * @section Base
  */
 
-@import "normalize.css";
-@import "shared/helpers.css";
 @import "shared/config.css";
 @import "shared/base.css";
 
@@ -17,9 +15,7 @@
  * @section Modules
  */
 
-@import "components/Accordion.css";
 @import "components/Badge.css";
-@import "components/Block.css";
 @import "components/Button.css";
 @import "components/Card.css";
 @import "components/Cart.css";
@@ -29,6 +25,7 @@
 @import "components/Guide.css";
 @import "components/Header.css";
 @import "components/Hero.css";
+@import "components/Home.css";
 @import "components/Hours.css";
 @import "components/Icon.css";
 @import "components/Layout.css";
@@ -36,15 +33,8 @@
 @import "components/Note.css";
 @import "components/Popover.css";
 @import "components/Price.css";
+@import "components/Product.css";
 @import "components/Score.css";
-@import "components/Siema.css";
 @import "components/Spinner.css";
 @import "components/Stepper.css";
 @import "components/Switchboard.css";
-@import "components/Well.css";
-
-/**
- * @section Tools
- */
-
-@import "shared/tools.css";

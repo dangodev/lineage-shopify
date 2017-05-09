@@ -12,23 +12,18 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  height: var(--space-3);
   justify-content: space-around;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: calc(100% - var(--space));
+  left: var(--space);
   padding-bottom: 0;
   padding-top: var(--space-025);
+  position: absolute;
+  top: 0;
+  width: calc(100% - var(--space-2));
+  z-index: var(--layer-nav);
 
   @media (--s) {
     padding-top: 0;
-  }
-
-  @media (--m) {
-    max-width: var(--viewport-m);
-  }
-
-  @media (--l) {
-    max-width: var(--viewport-l);
   }
 }
 
@@ -36,14 +31,52 @@
  * @section Submodules
  */
 
-.header-logo {
+ /* Logo */
+
+.logo-circle {
   display: block;
   height: var(--space-2);
   user-select: none;
   width: var(--space-2);
+
+  @media (--s) {
+    display: none;
+  }
+
+  & img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
 }
 
+/* Horizontal */
+
+.logo-horizontal {
+  display: none;
+  left: 50%;
+  position: absolute;
+  top: var(--space-05);
+  transform: translateX(-50%);
+
+  @media(--s) {
+    display: block;
+  }
+
+  @media(--m) {
+  }
+
+  & img {
+    display: block;
+    height: calc(2.5 * var(--space));
+    width: auto;
+  }
+}
+
+/* Nav */
+
 .header-nav {
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   width: 100%;

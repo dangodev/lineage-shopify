@@ -1,16 +1,33 @@
-<a class="card{% if modifier %} card--{{ modifier }}{% endif %}" href="{{ product.url }}" itemscope itemtype="http://schema.org/Product">
-  {% if label %}
-  <h4>{{ label }}</h4>
-  {% endif %}
-  <meta itemprop="url" content="{{ product.url }}" />
-  <div class="card-img" itemtype="image" content="{{ product.featured_image | img_url 'medium' }}" style="background-image:url({{ product.featured_image | img_url 'medium' }})">
-    <div>{% include 'notes' %}</div>
+<a class="product" href="{{ product.url }}" itemprop="url" itemscope itemtype="http://schema.org/Product">
+  <div class="product-img">
+    {% if product.handle == 'northern-italian-espresso' %}
+    <div class="product-new">
+      <svg><use xlink:href="#icon_star"></use></svg>
+      New
+    </div>
+    {% endif %}
+    {% if product.handle == 'colombia-jose-roman-rodriguez' %}
+    <div class="product-limited">
+      Limited Edition
+    </div>
+    {% endif %}
+    <img itemtype="image" src="{{ 'image-bag.jpg' | asset_img_url: '640x640' }}" alt="{{ product.title }}" />
+    <div class="product-notes">{% include 'notes' %}</div>
+    {% assign score = product.metafields.c_f.score %}
+    <div class="product-score">{% include 'score' %}</div>
+    <div class="product-brew">
+      <svg><use xlink:href="#icon_pourover"></use></svg>
+      <svg><use xlink:href="#icon_frenchpress"></use></svg>
+    </div>
+    <div class="product-view">View Item</div>
   </div>
-  <h2 class="card-title" itemprop="name">{{ product.title }}</h2>
+  <h2 class="product-title" itemprop="name">{{ product.title }}</h2>
   {% if product.metafields.c_f.region %}
-  <h4 class="card-subtitle">{{ product.metafields.c_f.region }}, {{ product.metafields.c_f.country }}</h4>
-  {% endif %}
-  {% if product.metafields.c_f.altitude %}
-  <h5 class="card-label">{{ product.metafields.c_f.altitude | round }}m</h5>
+  <h4 class="product-subtitle">
+    {{ product.metafields.c_f.region }}, {{ product.metafields.c_f.country }}
+    {% if product.metafields.c_f.altitude %}
+      <small>{{ product.metafields.c_f.altitude | round }}m</small>
+    {% endif %}
+  </h4>
   {% endif %}
 </a>

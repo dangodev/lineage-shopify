@@ -1,9 +1,15 @@
-<div class="row">
-  <div class="has-hours" style="background-image: url({{ 'bg-store.jpg' | asset_url }})">
-    <div class="cell">
+<section class="has-hours" style="background-image:url({{ 'image-orlando.png' | asset_url }})">
+  <div class="cell">
+    <h1 class="hours-heading">Come visit us!</h1>
+    <h2 class="hours-subheading">Two convenient locations</h2>
+    <div class="hours-grid">
+      <div class="hours">
+        <h2 class="hours-location">Downtown</h2>
+        <h3 class="hours-soon">Coming Soon!</h3>
+      </div>
       <div class="hours">
         <table class="data">
-          <lineage-hours/>
+          <v-lineage-hours location="East End Market" :holidays="[1125]" :open="[10,8,8,8,8,8,8]" :close="[18,19,19,19,19,19,19]"></v-lineage-hours>
           <tbody class="data-body">
             <tr class="data-row">
               <td class="data-term">M–F</td>
@@ -19,14 +25,11 @@
             </tr>
           </tbody>
         </table>
-        <a href="https://maps.apple.com/?q={{ shop.address.summary | escape }}" class="button button--icon button--directions mt05">
-          <div class="button-inner">
-            <svg aria-label="Pin" class="icon icon--marker button-icon" role="img"><use xlink:href="#icon_marker"></use></svg>
-            {{ shop.address.street }}<br>
-            {{ shop.address.city }}, {{ shop.address.state }} {{ shop.address.zip}}
-          </div>
+        <a href="https://maps.apple.com/?q={{ shop.address.summary | escape }}" class="hours-directions">
+          <svg aria-label="Pin" role="img"><use xlink:href="#icon_marker"></use></svg>
+          Directions
         </a>
       </div>
     </div>
   </div>
-</div>
+</section>

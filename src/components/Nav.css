@@ -1,6 +1,5 @@
 /**
  * Nav
- *
  * Main nav styles
  */
 
@@ -9,22 +8,26 @@
  */
 
 .nav {
+  display: flex;
   user-select: none;
 
   & ul {
     align-items: flex-end;
     display: flex;
+    height: 100%;
     justify-content: space-around;
     list-style-type: none;
     margin: 0;
     padding: 0;
 
     @media (--s) {
+      align-items: stretch;
       justify-content: flex-start;
     }
   }
 
   & li {
+    display: flex;
     margin: 0;
     padding: 0;
 
@@ -48,11 +51,12 @@
 }
 
 .nav-link {
-  border-bottom: 3px solid transparent;
+  align-items: center;
   color: var(--c-text);
-  display: block;
-  font-size: 13px;
+  display: flex;
+  font-size: var(--step-down-2);
   font-weight: 500;
+  justify-content: center;
   letter-spacing: 0.0625em;
   padding-bottom: 1em;
   padding-left: 0;
@@ -64,12 +68,12 @@
 
   &:focus,
   &:hover {
-    color: var(--gray-s);
+    color: var(--blue);
   }
 
   @media (--s) {
     border-bottom-width: 4px;
-    font-size: 100%;
+    font-size: var(--step-down-1);
     padding-bottom: 1.75em;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -77,6 +81,6 @@
   }
 
   &.is-active {
-    border-bottom-color: currentColor;
+    box-shadow: inset 0 4px 0 var(--blue);
   }
 }

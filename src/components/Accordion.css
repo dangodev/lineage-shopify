@@ -20,7 +20,7 @@
   box-shadow: inset 0 -2px var(--gray-t);
   color: var(--gray-ss);
   font-size: 0.875em;
-  max-height: 15em;
+  max-height: calc(100vh - var(--space));
   overflow: hidden;
   padding: 0;
   transition: max-height 200ms var(--transition-standard);

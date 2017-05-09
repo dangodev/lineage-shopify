@@ -8,7 +8,7 @@
  */
 
 <template>
-  <v-accordion folds="folds">
+  <v-accordion folds="folds"></v-accordion>
 </template>
 
 

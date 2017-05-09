@@ -1,6 +1,5 @@
 /**
  * Hours
- *
  * Storefront hours card
  */
 
@@ -9,31 +8,97 @@
  */
 
 .hours {
-  background-color: white;
+  background-color: var(--black);
+  box-shadow: 0 0 0 1px var(--gray);
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
-  margin-left: auto;
-  padding: 2em;
+  justify-content: space-between;
+  padding-bottom: var(--space-15);
+  padding-left: var(--space-15);
+  padding-right: var(--space-15);
+  padding-top: var(--space);
   text-align: center;
-
-  & span {
-    font-weight: 700;
-  }
-
-  @media (--s) {
-    padding: 3em;
-    width: 23em;
-  }
 }
 
 /**
- * @section Status
+ * @section Subcomponents
  */
 
-.hours-intro {
+/* Directions */
+
+.hours-directions {
+  align-items: center;
+  display: flex;
+  font-size: var(--step-down-1);
+  justify-content: center;
+  letter-spacing: 0.125em;
+  margin-top: var(--space);
+  padding-right: var(--space-05);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  & svg {
+    display: block;
+    fill: var(--blue);
+    height: var(--space-075);
+    margin-top: var(--space-0125);
+    margin-right: var(--space-0125);
+    transition: transform 500ms var(--transition-deceleration);
+    width: var(--space-075);
+  }
+
+  &:hover svg {
+    transform: rotate3d(0, 1, 0, -2turn);
+  }
+}
+
+/* Grid */
+
+.hours-grid {
+  display: grid;
+  grid-column-gap: var(--space-4);
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Heading */
+
+.hours-heading {
+  font-family: var(--heading-font-family);
+  font-size: 2.5em;
+  font-weight: 400;
+  margin-bottom: 0;;
+  margin-top: 0;
+  text-align: center;
+  text-transform: none;
+}
+
+/* Location */
+
+.hours-location {
+  font-size: 1em;
   font-weight: 500;
   letter-spacing: 0.0625em;
+  margin-bottom: 0;
+  margin-top: 0;
   text-transform: uppercase;
 }
+
+/* Subheading */
+
+.hours-subheading {
+  color: var(--gray-s);
+  font-size: var(--step-down-1);
+  font-weight: 400;
+  letter-spacing: 0.125em;
+  margin-bottom: var(--space-2);
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Status */
 
 .hours-status {
   display: block;
@@ -51,12 +116,28 @@
   }
 }
 
+/* Soon */
+
+.hours-soon {
+  color: white;
+  font-family: var(--heading-font-family);
+  font-size: 3.5em;
+  font-weight: 400;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform: rotate(-20deg);
+}
+
 /**
- * @section Containers
+ * @section Container
  */
 
 .has-hours {
-  background-color: var(--gray);
-  margin-bottom: var(--space-05);
+  background-color: var(--black);
+  color: white;
   margin-top: var(--space-05);
+  padding-bottom: var(--space-4);
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: var(--space-3);
 }

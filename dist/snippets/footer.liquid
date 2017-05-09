@@ -2,7 +2,6 @@
   <div class="footer-info">
     <h1 itemprop="name">{{ shop.name }}</h1>
     <a href="https://maps.apple.com/?q={{ shop.address.summary | url_encode }}" target="_blank" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-      <span itemprop="streetAddress">{{ shop.address.street }}</span>
       <span itemprop="addressLocality">{{ shop.address.city }}</span>
       <span itemprop="addressRegion">{{ shop.address.state }}</span>
     </a>
@@ -20,8 +19,9 @@
   <nav class="footer-social">
     <ul>
       {% for link in linklists.social.links %}
-        <li><a class="footer-social-link" href="{{ link.url }}" target="_blank"><svg aria-label="Cart" class="icon icon--{{ link.title | downcase }}" role="img"><use xlink:href="#icon_{{ link.title | downcase }}"></use></svg></a></li>
+        <li><a class="footer-social-link" href="{{ link.url }}" title="{{ link.title }}" target="_blank"><svg aria-label="{{ link.title }}" role="img"><use xlink:href="#icon_{{ link.title | downcase }}"></use></svg></a></li>
       {% endfor %}
+      <li><a class="footer-social-link" href="http://blog.lineageroasting.com" title="Medium" target="_blank"><svg aria-label="medium" role="img"><use xlink:href="#icon_medium"></use></svg></a></li>
     </ul>
   </nav>
 </footer>

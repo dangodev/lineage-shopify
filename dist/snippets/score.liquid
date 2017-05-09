@@ -1,6 +1,9 @@
 <div class="score" itemscope itemtype="https://schema.org/Rating">
+  <svg class="score-wheel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <circle cx="256" cy="256" r="224" stroke-dasharray="{{ score | round | times: 14.07 }} 1407" />
+  </svg>
   <h4 class="score-label" itemprop="description">Score</h4>
   <meta itemprop="worstRating" content="0" />
   <div class="score-value" itemprop="ratingValue">{{ score | round }}</div>
-  <div class="score-max" itemprop="bestRating">100</div>
+  <meta itemprop="bestRating" content="100" />
 </div>

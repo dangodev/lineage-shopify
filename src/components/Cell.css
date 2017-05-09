@@ -14,6 +14,10 @@
   max-width: calc(100% - var(--space-2));
 
   @media (--m) {
-    max-width: var(--viewport-m);
+    max-width: calc(900px - var(--space-4));
+  }
+
+  @media (--l) {
+    max-width: calc(1200px - var(--space-4));
   }
 }

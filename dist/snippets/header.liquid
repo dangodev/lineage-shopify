@@ -1,6 +1,7 @@
 <header class="header" itemscope itemtype="http://schema.org/LocalBusiness">
   <meta itemprop="name" content="{{ shop.name }}" />
-  <a href="{{ shop.url }}"><img class="header-logo" itemprop="logo" src="{{ 'lineage.svg' | asset_url }}" alt="{{ shop.name }}"></a>
+  <a class="logo-circle" href="{{ shop.url }}"><img itemprop="logo" src="{{ 'lineage.svg' | asset_url }}" alt="{{ shop.name }}"></a>
+  <a class="logo-horizontal" href="{{ shop.url }}"><img itemprop="logo" src="{{ 'lineage-horizontal.svg' | asset_url }}" alt="{{ shop.name }}"></a>
   <nav class="header-nav nav" role="navigation">
     <ul>
       {% capture product_type %}{{ product.collections | map: 'handle' }}{% endcapture %}

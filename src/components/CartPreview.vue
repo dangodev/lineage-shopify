@@ -9,7 +9,7 @@
 
 <template>
   <div class="nav-link nav-cart badge" @click.self="open">
-    <div class="badge-count" v-if="cart.items">{{ cart.items.length }}</div>
+    <div class="badge-count" v-if="cart.items.length > 0">{{ cart.items.length }}</div>
     <svg aria-label="Cart" class="icon icon--cart" role="img"><use xlink:href="#icon_cart"></use></svg>
     <div class="popover" :class="{ 'is-open': isOpen }">
       <div class="popover-inner">

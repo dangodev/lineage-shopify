@@ -1,6 +1,5 @@
 /**
  * Icon
- *
  * SVG icon sprites
  */
 
@@ -37,25 +36,11 @@
   width: 1.5em;
 }
 
-.icon--facebook {
-  fill: currentColor;
-  height: var(--space-075);
-  stroke-width: 0;
-  width: var(--space-075);
-}
-
 .icon--french-press {
   fill: currentColor;
   height: calc(var(--space) * 1.25);
   stroke-width: 0;
   width: calc(var(--space) * 1.25);
-}
-
-.icon--instagram {
-  fill: currentColor;
-  height: var(--space-075);
-  stroke-width: 0;
-  width: var(--space-075);
 }
 
 .icon--marker {
@@ -70,11 +55,4 @@
   height: calc(var(--space) * 1.25);
   stroke-width: 0;
   width: calc(var(--space) * 1.25);
-}
-
-.icon--twitter {
-  fill: currentColor;
-  height: var(--space-075);
-  stroke-width: 0;
-  width: var(--space-075);
 }

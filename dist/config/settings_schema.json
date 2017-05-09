@@ -156,65 +156,43 @@
     ]
   },
   {
-  "name": "Home page - hero slideshow",
+    "name": "Coffee page",
     "settings": [
       {
-        "type": "paragraph",
-        "content": "Turn the hero slideshow on and off from the home page section."
+        "type": "image",
+        "id": "coffee_banner.jpg",
+        "label": "Coffee Image",
+        "info": "1920px wide required"
       },
       {
-        "type": "select",
-        "id": "home_hero_auto_speed",
-        "label": "Rotation interval",
-        "options": [
-          {
-            "value": "5000",
-            "label": "5 seconds"
-          },
-          {
-            "value": "7000",
-            "label": "7 seconds"
-          },
-          {
-            "value": "10000",
-            "label": "10 seconds"
-          }
-        ]
+        "type": "text",
+        "id": "coffee_heading",
+        "label": "Heading"
       },
+      {
+        "type": "text",
+        "id": "coffee_text",
+        "label": "Subheading"
+      }
+    ]
+  },
+  {
+    "name": "Home page",
+    "settings": [
       {
         "type": "header",
-        "content": "Slide 1"
-      },
-      {
-        "type": "checkbox",
-        "id": "hero_slide_1_enable",
-        "label": "Enable"
+        "content": "Main Image"
       },
       {
         "type": "image",
         "id": "hero_slide_1.jpg",
-        "label": "Image",
-        "info": "1200px wide required"
-      },
-      {
-        "type": "select",
-        "id": "hero_slide_1_text_color",
-        "label": "Text color",
-        "options": [
-          {
-            "value": "is-light",
-            "label": "Light"
-          },
-          {
-            "value": "is-dark",
-            "label": "Dark"
-          }
-        ]
+        "label": "Main Image",
+        "info": "1920px wide required"
       },
       {
         "type": "text",
-        "id": "hero_slide_1_cta",
-        "label": "Button text"
+        "id": "hero_slide_1_alt",
+        "label": "Image Alt Text"
       },
       {
         "type": "text",
@@ -223,83 +201,29 @@
       },
       {
         "type": "header",
-        "content": "Slide 2"
-      },
-      {
-        "type": "checkbox",
-        "id": "hero_slide_2_enable",
-        "label": "Enable"
+        "content": "Coffee Types"
       },
       {
         "type": "image",
-        "id": "hero_slide_2.jpg",
-        "label": "Image",
-        "info": "1200px wide required"
-      },
-      {
-        "type": "select",
-        "id": "hero_slide_2_text_color",
-        "label": "Text color",
-        "options": [
-          {
-            "value": "is-light",
-            "label": "Light"
-          },
-          {
-            "value": "is-dark",
-            "label": "Dark"
-          }
-        ]
+        "id": "home_personal_image.jpg",
+        "label": "Personal Coffee",
+        "info": "1920px wide required"
       },
       {
         "type": "text",
-        "id": "hero_slide_2_cta",
-        "label": "Button text"
-      },
-      {
-        "type": "text",
-        "id": "hero_slide_2_link",
-        "label": "Link URL"
-      },
-      {
-        "type": "header",
-        "content": "Slide 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "hero_slide_3_enable",
-        "label": "Enable"
+        "id": "home_personal_message",
+        "label": "Personal Coffee Text"
       },
       {
         "type": "image",
-        "id": "hero_slide_3.jpg",
-        "label": "Image",
-        "info": "1200px wide required"
-      },
-      {
-        "type": "select",
-        "id": "hero_slide_3_text_color",
-        "label": "Text color",
-        "options": [
-          {
-            "value": "is-light",
-            "label": "Light"
-          },
-          {
-            "value": "is-dark",
-            "label": "Dark"
-          }
-        ]
+        "id": "home_wholesale_image.jpg",
+        "label": "Wholesale Coffee",
+        "info": "1920px wide required"
       },
       {
         "type": "text",
-        "id": "hero_slide_3_cta",
-        "label": "Button text"
-      },
-      {
-        "type": "text",
-        "id": "hero_slide_3_link",
-        "label": "Link URL"
+        "id": "home_wholesale_message",
+        "label": "Wholesale Text"
       }
     ]
   },

@@ -1,17 +1,33 @@
-{% assign subscription = all_products.subscription %}
-<a class="hero" href="{{ subscription.url }}" style="background-image:url({{ subscription.featured_image | img_url: 'master' }})">
-  <span class="hero-title">Subscriptions</span>
-  <span class="button"><span class="button-inner">Learn More</span></span>
-</a>
+{% if collection.handle == 'coffee' %}
+<div class="hero" style="background-image:url({{ 'coffee_banner.jpg' | asset_img_url: '2048x2048' }})">
+  <div class="hero-inner">
+    <h1 class="hero-heading">{{ settings['coffee_heading' }}</h1>
+    <h3 class="hero-subheading">{{ settings['coffee_subheading' }}</h3>
+  </div>
+</div>
+{% endif %}
 
 <section class="row">
-  <div class="well cell">
-    <h1 class="tac">{{ collection.title }}</h1>
-  </div>
+  <div class="cell">
+    <div class="has-product">
+      <h1 class="product-heading">{{ collection.title }}</h1>
+      <div class="product-grid">
+        {% for product in collection.products %}
+          {% include 'product-card' %}
+        {% endfor %}
+      </div>
 
-  <div class="well cell">
-    <div class="has-card">
-      {% for product in collection.products %}{% include 'product-card' %}{% endfor %}
+      {% if collection.handle == 'coffee' %}
+      <a class="card product-jump" href="/product/subscription-roasters-choice">
+        <img class="card-image" src="{{ 'bg-store.jpg' | asset_img_url: '2048x2048' }}" alt="Monthly Subscriptions from Lineage" />
+        <div class="card-inner">
+          <h1 class="card-heading">Lineage Coffee Subscription</h1>
+          <h3 class="card-subheading">Fresh roasted coffee delivered to your door, new every time.</h3>
+          <div class="card-cta">Pricing + Info</div>
+        </div>
+      </a>
+      {% endif %}
     </div>
   </div>
 </section>
+

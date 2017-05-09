@@ -19,7 +19,7 @@
  */
 
 .data-row {
-  box-shadow: inset 0 -1px var(--gray);
+  box-shadow: inset 0 -1px color(var(--gray) alpha(-50%));
 }
 
 .data-term {

@@ -9,7 +9,7 @@
 
 <template>
   <div>
-    <div class="hours-intro">Our coffee bar is</div>
+    <div class="hours-location">{{ location }}</div>
     <div class="hours-status" :class="{ 'is-open': status == 'Open', 'is-closing': status == 'Closing Soon', 'is-closed': status == 'Closed' }">{{ status }}</div>
   </div>
 </template>
@@ -19,23 +19,13 @@
  */
 
 <script>
-// Sunday = 0; times in military EST
-const hours = {
-  0: { open: 10, close: 18 },
-  1: { open: 8, close: 19 },
-  2: { open: 8, close: 19 },
-  3: { open: 8, close: 19 },
-  4: { open: 8, close: 19 },
-  5: { open: 8, close: 19 },
-  6: { open: 8, close: 19 },
-};
-
-// 1125 = December 25 (Jan = 0)
-const holidays = [
-  '1125',
-];
-
 export default {
+  props: {
+    open: Array,  // [Sunday, Monday, Tuesday…] in military time
+    close: Array,
+    holidays: Array, // 1125 = December 25, 0 = Jan 1
+    location: String, // “East End Market”
+  },
   data () {
     const status = this.getStatus();
     return { status };
@@ -46,7 +36,7 @@ export default {
       const userDate = `${user.getMonth()}${user.getDate()}`;
 
       // Check for holidays
-      if(holidays.indexOf(userDate) >= 0) {
+      if(this.holidays.indexOf(userDate) >= 0) {
         return 'Closed';
       }
 
@@ -54,10 +44,9 @@ export default {
       const timezoneOffset = 5; // EST = +5
       const userTZOffset = user.getTimezoneOffset() / 60;
       const TZDiff = timezoneOffset - userTZOffset;
-      const storeHours = hours[user.getDay()];
       // Convert to EST
-      const open = storeHours.open + TZDiff;
-      const close = storeHours.close + TZDiff;
+      const open = this.open[user.getDay()] + TZDiff;
+      const close = this.close[user.getDay()] + TZDiff;
       // Compare user time to store time
       const userHours = user.getHours();
       const userMinutes = user.getMinutes() / 60;

@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractStyles = new ExtractTextPlugin('app.css');
+const extractStyles = new ExtractTextPlugin('app.css.liquid');
 const extractFonts = new ExtractTextPlugin('fonts.css');
 
 module.exports = {
@@ -24,13 +24,13 @@ module.exports = {
       {
         test: /App\.css/,
         use: extractStyles.extract({
-          loader: 'css-loader?importLoaders=1!postcss-loader',
+          use: 'css-loader?importLoaders=1!postcss-loader',
         }),
       },
       {
         test: /Font\.css/,
         use: extractFonts.extract({
-          loader: 'css-loader',
+          use: 'css-loader',
         }),
       },
       {

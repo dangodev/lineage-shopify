@@ -1,6 +1,5 @@
 /**
  * Lineage
- *
  * Primary entry point
  */
 
@@ -15,7 +14,6 @@ import Cart from './components/Cart.vue';
 import CartPreview from './components/CartPreview.vue';
 import LineageHours from './components/LineageHours.vue';
 import Product from './components/Product.vue';
-import Siema from './components/Siema.vue';
 import Stepper from './components/Stepper.vue';
 import Wholesale from './containers/Wholesale.vue';
 
@@ -45,10 +43,9 @@ const app = new Vue({
     this.updateCart();
   },
   components: {
-    'lineage-hours': LineageHours,
-    'v-carousel': Siema,
-    'v-cart': Cart,
     'v-cart-preview': CartPreview,
+    'v-cart': Cart,
+    'v-lineage-hours': LineageHours,
     'v-product': Product,
     'v-stepper': Stepper,
     'v-wholesale': Wholesale,

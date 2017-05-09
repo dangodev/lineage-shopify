@@ -1,42 +1,28 @@
-<div class="row">
-  <v-carousel
-    :auto="{{ settings.home_hero_auto_speed }}"
-    :slides="[
-    {% if settings['hero_slide_1_enable'] %}
-      {
-      cta: '{{ settings['hero_slide_1_cta'] }}',
-      color: '{{ settings['hero_slide_1_text_color'] }}',
-      image: '{{ 'hero_slide_1.jpg' | asset_img_url: '2048x2048' }}',
-      link: '{{ settings['hero_slide_1_link'] }}',
-      },
-    {% endif %}
-    {% if settings['hero_slide_2_enable'] %}
-      {
-      cta: '{{ settings['hero_slide_2_cta'] }}',
-      color: '{{ settings['hero_slide_2_text_color'] }}',
-      image: '{{ 'hero_slide_2.jpg' | asset_img_url: '2048x2048' }}',
-      link: '{{ settings['hero_slide_2_link'] }}',
-      },
-    {% endif %}
-    {% if settings['hero_slide_3_enable'] %}
-      {
-      cta: '{{ settings['hero_slide_3_cta'] }}',
-      color: '{{ settings['hero_slide_3_text_color'] }}',
-      image: '{{ 'hero_slide_3.jpg' | asset_img_url: '2048x2048' }}',
-      link: '{{ settings['hero_slide_3_link'] }}',
-      },
-    {% endif %}
-    ]" />
-  <div class="siema-preload" style="background-image:url({{ 'hero_slide_1.jpg' | asset_img_url: '2048x2048' }})"></div>
-</div>
+<section class="home-splash">
+  <a href="{{ settings['hero_slide_1_link'] }}">
+    <img alt="{{ settings['hero_slide_1_alt'] }}" src="{{ 'hero_slide_1.jpg' | asset_img_url: '2048x2048' }}" />
+  </a>
+</section>
 {% include 'store-hours' %}
-<div class="row">
-  <div class="has-block">
-    <a href="{{ collections.coffee.url }}" class="block" style="background-image:url({{ 'bg-coffee.jpg' | asset_img_url: '1024x1024' }})">
-      <span class="button button--white"><span class="button-inner">Shop Coffee</span></span>
+<section class="home-followup">
+  <h1>Nah, son.</h1>
+  <h2>I’m all about them beans</h2>
+  <div class="home-beans">
+    <a href="{{ collections.coffee.url }}" class="card home-followup-block">
+      <img class="card-image" src="{{ 'home_personal_image.jpg' | asset_img_url: '2048x2048' }}" alt="Personal Coffee" />
+      <div class="card-inner">
+        <div class="card-heading">Individual Coffees</div>
+        <div class="card-subheading">{{ settings['home_personal_message'] }}</div>
+        <div class="card-cta">View All Coffee</div>
+      </div>
     </a>
-    <a href="{{ pages.wholesale.url }}" class="block" style="background-image:url({{ 'bg-wholesale.jpg' | asset_img_url: '1024x1024' }})">
-      <span class="button button--white"><span class="button-inner">Wholesale</span></span>
+    <a href="{{ pages.wholesale.url }}" class="card home-followup-block">
+      <img class="card-image" src="{{ 'home_wholesale_image.jpg' | asset_img_url: '2048x2048' }}" alt="Wholesale" />
+      <div class="card-inner">
+        <div class="card-heading">Bulk & Wholesale</div>
+        <div class="card-subheading">{{ settings['home_wholesale_message'] }}</div>
+        <div class="card-cta">Pricing + Info</div>
+      </div>
     </a>
   </div>
-</div>
+</section>

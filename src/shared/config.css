@@ -10,13 +10,14 @@
 :root {
   --almond: #d7ad4b;
   --berry: #3f3b71;
+  --blush: #ffdbd8;
   --caramel: #d7ad4b;
-  --black: #222426;
+  --black: #211e21;
   --blue: #73e1e5;
   --cherry: #c00601;
   --chocolate: #675344;
   --floral: #f2bdff;
-  --gray: #c7d4d8;
+  --gray: #b2adb2;
   --lemon: #ffe62a;
   --marshmallow: #fdf5ee;
   --peach: #ffbeae;
@@ -25,12 +26,12 @@
 
   /* Tints */
   --blue-t: #a0f2f2;
-  --gray-t: #dae7ec;
-  --gray-tt: #fafcfc;
+  --gray-t: #dddbdd;
+  --gray-tt: #f9f9f9;
 
   /* Shades */
-  --gray-s: #7d8e91;
-  --gray-ss: #4d5a5b;
+  --gray-s: #8d828e;
+  --gray-ss: #423642;
 }
 
 /* Template Hooks */
@@ -45,6 +46,7 @@
 
 :root {
   --text-font-family: "FF DIN", sans-serif;
+  --heading-font-family: "learning-curve", cursive;
 }
 
 /* Type Scale (http://spencermortensen.com/articles/typographic-scale/) */
