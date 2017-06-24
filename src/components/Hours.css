@@ -18,7 +18,8 @@
   padding-bottom: var(--space-15);
   padding-left: var(--space-15);
   padding-right: var(--space-15);
-  padding-top: var(--space);
+  padding-top: 56.25%;
+  position: relative;
   text-align: center;
 }
 
@@ -74,6 +75,19 @@
   text-transform: none;
 }
 
+/* Image */
+
+.hours-image {
+  background-color: color(var(--blue) alpha(-90%));
+  height: 0;
+  left: 0;
+  padding-top: 56.25%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 /* Location */
 
 .hours-location {
@@ -81,7 +95,7 @@
   font-weight: 500;
   letter-spacing: 0.0625em;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: var(--space);
   text-transform: uppercase;
 }
 

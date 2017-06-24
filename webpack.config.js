@@ -24,7 +24,10 @@ module.exports = {
       {
         test: /App\.css/,
         use: extractStyles.extract({
-          use: 'css-loader?importLoaders=1!postcss-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
+          ],
         }),
       },
       {
@@ -54,6 +57,7 @@ module.exports = {
   plugins: [
     extractStyles,
     extractFonts,
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: '"production"' },
     }),
